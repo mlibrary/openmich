@@ -1,0 +1,32 @@
+name = Paragraphs pack test
+core = 7.x
+package = Paragraphs
+version = 7.x-1.0
+project = paragraphs_id_test
+dependencies[] = features
+dependencies[] = paragraphs
+dependencies[] = strongarm
+dependencies[] = text
+hidden = TRUE
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[field_base][] = field_pp_test_body
+features[field_base][] = field_pp_test_paragraphs
+features[field_instance][] = node-pp_test_landing_page-field_pp_test_body
+features[field_instance][] = node-pp_test_landing_page-field_pp_test_paragraphs
+features[field_instance][] = paragraphs_item-pp_test_paragraph_bundle-field_pp_test_body
+features[node][] = pp_test_landing_page
+features[paragraphs][] = pp_test_paragraph_bundle
+features[variable][] = field_bundle_settings_node__pp_test_landing_page
+features[variable][] = menu_options_pp_test_landing_page
+features[variable][] = menu_parent_pp_test_landing_page
+features[variable][] = node_options_pp_test_landing_page
+features[variable][] = node_preview_pp_test_landing_page
+features[variable][] = node_submitted_pp_test_landing_page
+
+; Information added by Drupal.org packaging script on 2015-06-21
+version = "7.x-1.0-alpha2"
+core = "7.x"
+project = "paragraphs_id"
+datestamp = "1434925403"
+

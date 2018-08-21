@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * @file
+ * Paragraphs pack primary module's tests.
+ */
+
+/**
+ * Class ParagraphsIdTestCase
+ */
+class ParagraphsIdTestCase extends DrupalWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Test Paragraphs ID module',
+      'description' => 'Ensure that the Paragraphs ID module works as described.',
+      'group' => 'Paragraphs ID',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp('paragraphs_id', 'paragraphs_id_test');
+    // Log user in.
+    $web_user = $this->drupalCreateUser(array('bypass node access', 'administer content types', 'administer paragraphs bundles'));
+    $this->drupalLogin($web_user);
+  }
+
+  /**
+   * Test paragraphs item id class.
+   */
+  public function testParagraphsIdItemClass() {
+    $this->createNewTestNode();
+    $this->openCreatedNodePage();
+
+    // Check existence of corresponding paragraphs item id class.
+    $id_class = 'paragraphs-item-1';
+    $paragraph_class = 'paragraphs-item-pp-test-paragraph-bundle';
+
+    // Look for a divs with the both classes: id class and paragraph class.
+    // We search for "SPACE + class + SPACE" to avoid matching a substring
+    // of the class.
+    $elements = $this->xpath('//div[contains(concat(" ", normalize-space(@class), " "), :id_class) and contains(concat(" ", normalize-space(@class), " "), :paragraph_class)]', array(':id_class' => ' ' . $id_class . ' ', ':paragraph_class' => ' ' . $paragraph_class . ' '));
+    $this->assertTrue(!empty($elements), t('Corresponding paragraphs item id class exists.'));
+  }
+
+  /**
+   * Create new test node.
+   *
+   * This new node has one test paragraphs bundle assigned.
+   */
+  public function createNewTestNode() {
+    $this->openNewContentPage();
+    $this->clickAddParagraphButton();
+    $this->saveCurrentForm();
+  }
+
+  /**
+   * Open the page for creating new content (Test Landing page in this case).
+   */
+  function openNewContentPage() {
+    $new_landing_page_path = 'node/add/pp-test-landing-page';
+    $this->drupalGet($new_landing_page_path);
+  }
+
+  /**
+   * Click 'Add a Paragraph' button.
+   */
+  function clickAddParagraphButton() {
+    $button_name = 'field_pp_test_paragraphs_add_more_add_more';
+    $this->drupalPostAJAX(NULL, array(), $button_name);
+  }
+
+  /**
+   * Save current form.
+   */
+  function saveCurrentForm() {
+    $edit = array(
+      'title' => 'title',
+      'field_pp_test_paragraphs[' . LANGUAGE_NONE . '][0][field_pp_test_body][' . LANGUAGE_NONE . '][0][value]' => 'body text',
+    );
+    $this->drupalPost(NULL, $edit, t('Save'));
+  }
+
+  /**
+   * Open created node page.
+   */
+  function openCreatedNodePage() {
+    $node_page = 'node/1';
+    $this->drupalGet($node_page);
+  }
+
+}
+
+/**
+ * Class ParagraphsIdFeatureTestCase
+ *
+ * Ensure that the test features has been installed.
+ */
+class ParagraphsIdFeatureTestCase extends DrupalWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Test Paragraphs ID testing feature module',
+      'description' => 'Ensure that the Paragraphs ID testing feature installs.',
+      'group' => 'Paragraphs ID',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp('paragraphs_id_test');
+    // Log user in.
+    $web_user = $this->drupalCreateUser(array('bypass node access', 'administer content types', 'administer paragraphs bundles'));
+    $this->drupalLogin($web_user);
+  }
+
+  /**
+   * Test content type stored in features.
+   */
+  public function testParagraphsIdFeatureNodeType() {
+    $node_types = node_type_get_types();
+    $this->assertTrue(isset($node_types['pp_test_landing_page']), 'Node type landing page is available.');
+  }
+
+  /**
+   * Test content type stored in features.
+   */
+  public function testParagraphsIdFeatureAddNewLandingPage() {
+    // Go to test content type.
+    $this->drupalGet('node/add/pp-test-landing-page');
+    $this->assertText('Paragraphs', 'Found paragraphs field');
+  }
+
+}

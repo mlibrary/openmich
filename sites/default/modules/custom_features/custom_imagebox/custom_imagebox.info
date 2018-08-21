@@ -1,0 +1,9 @@
+name = "Custom: WYSIWYG image box"
+description = "custom_imagebox"
+core = "7.x"
+version = "7.x-2.x"
+project = "custom_imagebox"
+
+stylesheets[all][] = "custom_imagebox.css"
+
+dependencies[] = "wysiwyg"

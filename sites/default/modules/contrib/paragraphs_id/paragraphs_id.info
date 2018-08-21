@@ -1,0 +1,13 @@
+name = Paragraphs ID
+description = Adds a class onto paragraphs item entities.
+core = 7.x
+package = Paragraphs
+dependencies[] = paragraphs
+files[] = tests/paragraphs_id.test
+
+; Information added by Drupal.org packaging script on 2015-06-21
+version = "7.x-1.0-alpha2"
+core = "7.x"
+project = "paragraphs_id"
+datestamp = "1434925403"
+

@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Custom site functionality.
+ *
+ */
+
+/**
+ * Implements hook_info_alter().
+ *
+ * @param array $info
+ */
+function custom_element_info_alter(&$info) {
+  $info['text_format']['#pre_render'][] = 'custom_wysiwyg_pre_render';
+}
+
+/**
+ * Implements hook_wysiwyg_editor_settings_alter().
+ *
+ * Add custom stylesheet formats via a JavaScript file.
+ */
+function custom_wysiwyg_editor_settings_alter(&$settings, $context) {
+  if ($context['profile']->editor == 'tinymce') {
+    $settings['gecko_spellcheck'] = TRUE;  
+  }  
+}
+
+
+/**
+ * Custom render for the textarea to add our CSS when we need it
+ *
+ * @param type $element
+ * @return string
+ */
+function custom_wysiwyg_pre_render($element) {
+  $element['#attached']['css'][] = drupal_get_path('module', 'custom') . '/css/wysiwyg.css';
+  $element['#attached']['css'][] = drupal_get_path('module', 'custom') . '/css/editor.css';
+  return $element;
+}
+
+/**
+ * Implements hook_menu_block_blocks().
+ */
+function custom_menu_block_blocks() {
+  // The array key is the block delta used by menu block.
+  return array(
+    'sidebar_menu' => array(
+      'menu_name'   => 'main-menu',
+      'parent_mlid' => 0,
+      'title_link'  => 1,
+      'admin_title' => 'Menu Block: Sidebar menu',
+      'level'       => 2,
+ //     'follow'      => 'active', /*only do this for the find menu - interfers with menu position rule for the blog */
+ //     'showTitle'   => true,
+      'depth'       => 4,
+      'expanded'    => 0,
+      'sort'        => 0,
+    ), 
+    
+    'mobile_header_navigation' => array(
+      'menu_name'   => 'main-menu',
+      'parent_mlid' => 0,
+      'title_link'  => 0,
+      'admin_title' => 'Menu Block: Mobile header navigation',
+      'level'       => 1,
+      'follow'      => 0,
+      'depth'       => 4,
+      'expanded'    => 0,
+      'sort'        => 0,
+    ), 
+  );
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function custom_views_api() {
+  return array('api' => 3);
+}
+
+
+
+

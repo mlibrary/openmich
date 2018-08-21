@@ -1,0 +1,49 @@
+/**
+ * @file
+ *
+ * Styling for the image boxes when they appear in the WYSIWYG editor. There is
+ * no easy way to override this in the theme layer.
+ */
+
+/* Dotted lines for the image and caption divs. */
+div.imagebox-wrapper_full,
+div.imagebox-wrapper_full div,
+div.imagebox-wrapper_small,
+div.imagebox-wrapper_small div,
+div.imagebox-wrapper,
+div.imagebox-wrapper div {
+  border: 1px dashed #ccc;
+  padding: .25em;
+}
+
+
+/* Spacing for the internal divs. */
+div.imagebox-wrapper_full,
+div.imagebox-wrapper_small div,
+div.imagebox-wrapper div {
+  margin: .25em;
+}	
+
+/* In-editor floats. */
+div.imagebox-wrapper_full,
+div.imagebox-wrapper_small,
+div.imagebox-wrapper {
+  width: auto;
+  padding: .5em;
+}
+
+div.imagebox-wrapper_small.float-left,
+div.imagebox-wrapper.float-left {
+  float: left;
+  margin: 0 1em .5em 0;
+}
+
+div.imagebox-wrapper_small.float-right,
+div.imagebox-wrapper.float-right {
+  float: right;
+  margin: 0 0 .5em 1em;
+}
+
+div.imagebox-wrapper_full {
+	margin: 1em;
+}

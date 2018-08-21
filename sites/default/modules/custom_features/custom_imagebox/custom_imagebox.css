@@ -1,0 +1,90 @@
+div.imagebox-wrapper_full,
+div.imagebox-wrapper_small,
+div.imagebox-wrapper {
+  //border-bottom: 2px solid #D8E6EF;
+	width: 100%;
+}
+
+div.imagebox-wrapper_small.float-left,
+div.imagebox-wrapper.float-left {
+  float: left;
+  margin: 0 .5em .25em 0;
+}
+
+div.imagebox-wrapper_small.float-right,
+div.imagebox-wrapper.float-right {
+  float: right;
+  margin: 0 0 .25em .5em;
+}
+
+div.imagebox-wrapper_full {
+	padding: .5em;
+	box-sizing: border-box;
+}
+
+div.imagebox-wrapper_full img,
+div.imagebox-wrapper_small img,
+div.imagebox-wrapper img {
+  margin: 0;
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+}
+
+div.imagebox-wrapper_full .imagebox-caption,
+div.imagebox-wrapper_small .imagebox-caption,
+div.imagebox-wrapper .imagebox-caption {
+	border-bottom: 2px solid #D8E6Ef;
+}
+
+div.imagebox-wrapper_full .imagebox-caption,
+div.imagebox-wrapper_small .imagebox-caption,
+div.imagebox-wrapper .imagebox-caption,
+div.imagebox-wrapper .font-serif {
+  color: #26527D;
+  font-family: minion-pro;
+  font-size: 1em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+div.imagebox-wrapper_full .font-sans-serif,
+div.imagebox-wrapper_small .font-sans-serif,
+div.imagebox-wrapper .font-sans-serif {
+  color: #02254A;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: 1.75em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+@media (min-width: 480px) {
+	div.imagebox-wrapper_small,
+	div.imagebox-wrapper {
+		width: 39%;
+	}
+}
+
+@media (min-width: 560px) {
+	div.imagebox-wrapper {
+		width: 35%;
+	}
+	div.imagebox-wrapper_small {
+		width: 20%;
+	}
+	div.imagebox-wrapper_small.float-left,
+	div.imagebox-wrapper.float-left {
+		margin: 0 1em 1em 0;
+	}
+
+	div.imagebox-wrapper_small.float-right,
+	div.imagebox-wrapper.float-right {
+	  	margin: 0 0 1em 1em;
+	}
+}
+
+@media (min-width: 800px) {
+}

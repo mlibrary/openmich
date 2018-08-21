@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the custom panel myworkbench feature.
+ */
+
+include_once 'custom_panel_myworkbench.features.inc';

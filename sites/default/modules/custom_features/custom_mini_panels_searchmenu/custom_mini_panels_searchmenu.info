@@ -1,0 +1,9 @@
+name = Custom Mini Panels SearchMenu
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = panels_mini
+features[ctools][] = panels_mini:panels_default:1
+features[features_api][] = api:2
+features[panels_mini][] = header_navigation_and_search

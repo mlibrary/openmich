@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the Blocks ARIA Labels 
+ * module.
+ */
+ 
+/**
+ * Implements hook_schema().
+ *
+ * Creates a new database table when the module is installed.
+ */
+function block_aria_label_schema() {
+  $schema['block_aria_label'] = array(
+    'description' => 'Stores ARIA labels assigned to blocks',
+    'fields' => array(
+      'module' => array(
+        'description' => 'The name of the module that generates the block',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'delta' => array(
+        'description' => 'The delta value of the block',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'label' => array(
+        'description' => 'The assigned label',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+  );
+    
+  return $schema;
+}

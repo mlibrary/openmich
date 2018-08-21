@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * @file
+ * Adds additional elements on block administration forms to add ARIA Labels.
+ */
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Adds additional elements to the 'add block' and 'configure block' forms.
+ */
+function block_aria_label_form_alter(&$form, &$form_state, $form_id) {  
+  if ($form_id == 'block_add_block_form' || $form_id == 'block_admin_configure') {  
+    // Build the block object.
+    $block = new stdClass;
+    $block->module = $form['module']['#value'];
+    $block->delta = $form['delta']['#value'];
+    	
+    // Create the additional form elements.
+    $form['block_aria_label'] = array(
+      '#title' => t('Block ARIA Label settings'),
+      '#type' => 'fieldset',
+      '#collapsible' => TRUE,
+      '#weight' => 0,
+    );
+    $form['block_aria_label']['label'] = array(
+      '#title' => t('ARIA Label'),
+      '#description' => t('Specify an ARIA label to add to this block.'),
+      '#type' => 'textfield',
+      '#default_value' => _block_aria_label_get_label($block),
+    );
+    
+    $form['#submit'][] = 'block_aria_label_form_submit';
+  }
+}
+
+/**
+ * Form submission handler for the ARIA landmark label.
+ *
+ * Saves the data to the block_aria_label table.
+ */
+function block_aria_label_form_submit($form, &$form_state) {
+  if (isset($form_state['values']['label']) && user_access('administer blocks')) {
+    $module = $form_state['values']['module'];
+    $delta = $form_state['values']['delta'];
+    $label = $form_state['values']['label'];
+
+    // Delete any existing label.
+    db_delete('block_aria_label')
+      ->condition('module', $module)
+      ->condition('delta', $delta)
+      ->execute();
+    
+    // Save the new label.
+    if (!empty($form_state['values']['label'])) {
+      db_insert('block_aria_label')
+        ->fields(array('module' => $module, 'delta' => $delta, 'label' => $label))
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Find an ARIA landmark label for a certain block.
+ *
+ * @param obj $block
+ *  An object containing the name of the module and the delta of the block.
+ *
+ * @return string|bool
+ *  Returns the label if one was found. If not, returns nothing.
+ */
+function _block_aria_label_get_label($block) {
+  $label = db_query('SELECT label FROM {block_aria_label} WHERE module = :module AND delta = :delta', array(
+    ':module' => $block->module,
+    ':delta' => $block->delta,
+  ))->fetchField();
+  
+  return $label ? $label : '';
+}
+
+/**
+ * Implements hook_preprocess() for blocks.
+ *
+ * Adds additional variables for ARIA Labels.
+ */
+function block_aria_label_preprocess_block(&$variables) {
+  $block = $variables['block'];
+  $label = _block_aria_label_get_label($block);
+  if (!empty($label)) {
+    // Add the label into the attributes array.
+    $variables['attributes_array']['aria-label'] = $label;
+  }
+}

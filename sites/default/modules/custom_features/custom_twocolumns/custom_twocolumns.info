@@ -1,0 +1,9 @@
+name = "Custom: WYSIWYG two columns box"
+description = "custom_twocolumns"
+core = "7.x"
+version = "7.x-1.x"
+project = "custom_twocolumns"
+
+stylesheets[all][] = "custom_twocolumns.css"
+
+dependencies[] = "wysiwyg"

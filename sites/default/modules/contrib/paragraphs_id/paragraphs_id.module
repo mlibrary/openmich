@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * Paragraphs ID module file.
+ */
+
+// Paragraphs ID constants.
+define('PI_PARAGRAPH_TYPE', 'paragraphs_item');
+define('PI_ADMIN_PERMISSION', 'administer paragraphs id');
+define('PI_PARAGRAPHS_ITEM_ID_PREFIX', 'paragraphs_id_item_id_prefix');
+define('PI_PARAGRAPHS_ITEM_ID_PREFIX_DEFAULT', 'paragraphs-item-');
+
+/**
+ * Implements hook_permission().
+ */
+function paragraphs_id_permission() {
+  $permissions = array();
+  $permissions[PI_ADMIN_PERMISSION] = array(
+    'title' => t('Administer Paragraphs ID'),
+    'description' => t('Allows users to access all Paragraphs ID settings.'),
+  );
+  return $permissions;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function paragraphs_id_menu() {
+  $items = array();
+  $callback_file_directory = drupal_get_path('module', 'paragraphs_id') . '/includes';
+
+  $items['admin/config/system/paragraphs-id'] = array(
+    'title' => 'Paragraphs ID',
+    'description' => 'Configure Paragraphs ID class prefix.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('paragraphs_id_settings_form'),
+    'access arguments' => array(PI_ADMIN_PERMISSION),
+    'file' => 'paragraphs_id.admin.inc',
+    'file path' => $callback_file_directory,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_preprocess().
+ *
+ * Add class with paragraph item entity id to paragraphs item.
+ */
+function paragraphs_id_preprocess(&$variables, $hook) {
+  // Only run with paragraphs_item entity.
+  if (!empty($variables['entity_type']) == PI_PARAGRAPH_TYPE) {
+    if (!empty($variables[PI_PARAGRAPH_TYPE])) {
+      // Get paragraph entity.
+      $entity = $variables[PI_PARAGRAPH_TYPE];
+      // Get the paragraphs item id prefix.
+      $id_prefix = paragraphs_id_get_prefix();
+      // Define class name.
+      $class = $id_prefix . $entity->item_id;
+      // Add class to classes_array.
+      $variables['classes_array'][] = drupal_html_class($class);
+    }
+  }
+}
+
+/**
+ * Get class prefix from variable.
+ *
+ * @return string
+ */
+function paragraphs_id_get_prefix() {
+  return variable_get(PI_PARAGRAPHS_ITEM_ID_PREFIX, PI_PARAGRAPHS_ITEM_ID_PREFIX_DEFAULT);
+}

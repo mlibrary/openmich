@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Paragraphs pack test feature.
+ */
+
+include_once 'paragraphs_id_test.features.inc';

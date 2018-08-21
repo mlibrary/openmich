@@ -1,0 +1,35 @@
+/**
+ * @file
+ *
+ * Styling for the image boxes when they appear in the WYSIWYG editor. There is
+ * no easy way to override this in the theme layer.
+ */
+
+/* Dotted lines for the wrapper left/right divs. */
+div.twocolumns,
+div.twocolumns div {
+  border: 1px dashed #ccc;
+  padding: .25em;
+}
+
+/* Spacing for the internal divs. */
+div.twocolumns-wrapper div {
+  margin: .25em;
+}
+
+/* In-editor floats. */
+div.twocolumns-wrapper {
+  padding: .5em;
+}
+
+div.twocolumns.col-left {
+  float: left;
+  margin: 0 2em .75em 0;
+  width: 47%;
+}
+
+div.twocolumns.col-right {
+  float: right;
+  margin: 0 0 .55em 0;
+  width: 47%;
+}

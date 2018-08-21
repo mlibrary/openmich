@@ -1,0 +1,38 @@
+div.twocolumns-wrapper {
+  width: auto;
+}
+
+div.twocolumns.col-left {
+  float: left;
+  margin: 0 2em 1em 0;
+  width: 100%;
+}
+
+div.twocolumns.col-right {
+  float: left;
+  margin: 0 0 1em 0;
+  width: 100%;
+}
+
+div.twocolumns-wrapper .clear-col {
+	clear: both;
+	line-height:0;
+}	
+
+
+@media all and (min-width: 560px) { 
+
+}
+
+
+@media all and (min-width: 900px) { 
+	div.twocolumns.col-left {width: 47%;}	
+	div.twocolumns.col-right {width: 47%;}
+}	
+
+
+.lt-ie9 {
+	div.twocolumns.col-left {width: 47% !important;}	
+	div.twocolumns.col-right {width: 47% !important;}
+
+}

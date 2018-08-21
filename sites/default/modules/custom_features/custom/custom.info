@@ -1,0 +1,8 @@
+name = Custom
+description = Custom site functionality.
+package = m3
+core = 7.x
+
+files[] = custom.module
+
+dependencies[] = block

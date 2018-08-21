@@ -1,0 +1,3176 @@
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+ *
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
+/* Import Sass mixins, variables, Compass modules, etc. */
+/* HTML element (SMACSS base) rules */
+/**
+ * @file
+ * Normalize.css is intended to be used as an alternative to CSS resets.
+ *
+ * This file is a slight fork of these original sources:
+ * - normalize.css v2.1.2 | MIT License | git.io/normalize
+ * - normalize.scss v2.1.2 | MIT/GPLv2 License | bit.ly/normalize-scss
+ *
+ * It's suggested that you read the normalize.scss file and customise it to meet
+ * your needs, rather then including the file in your project and overriding the
+ * defaults later in your CSS.
+ * @see http://nicolasgallagher.com/about-normalize-css/
+ *
+ * Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
+ *       @see http://snook.ca/archives/html_and_css/no_css_reset/
+ */
+/**
+ * HTML5 display definitions
+ */
+/* Correct `block` display not defined in IE 8/9. */
+/* line 33, ../sass/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Correct `inline-block` display not defined in IE 8/9. */
+/* line 40, ../sass/_normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 52, ../sass/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* Address styling not present in IE 8/9. */
+/* line 58, ../sass/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/**
+ * Base
+ *
+ * Instead of relying on the fonts that are available on a user's computer, you
+ * can use web fonts which, like images, are resources downloaded to the user's
+ * browser. Because of the bandwidth and rendering resources required, web fonts
+ * should be used with care.
+ *
+ * Numerous resources for web fonts can be found on Google. Here are a few
+ * websites where you can find Open Source fonts to download:
+ * - http://www.fontsquirrel.com/fontface
+ * - http://www.theleagueofmoveabletype.com
+ *
+ * In order to use these fonts, you will need to convert them into formats
+ * suitable for web fonts. We recommend the free-to-use Font Squirrel's
+ * Font-Face Generator:
+ *   http://www.fontsquirrel.com/fontface/generator
+ *
+ * The following is an example @font-face declaration. This font can then be
+ * used in any ruleset using a property like this:  font-family: Example, serif;
+ *
+ * Since we're using Sass, you'll need to declare your font faces here, then you
+ * can add them to the font variables in the _init.scss partial.
+ */
+/*
+@font-face {
+  font-family: 'Example';
+  src: url('../fonts/example.eot');
+  src: url('../fonts/example.eot?iefix') format('eot'),
+    url('../fonts/example.woff') format('woff'),
+    url('../fonts/example.ttf') format('truetype'),
+    url('../fonts/example.svg#webfontOkOndcij') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ */
+/* line 106, ../sass/_normalize.scss */
+html {
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  line-height: 1.5em;
+}
+
+/* Remove default margin. */
+/* line 128, ../sass/_normalize.scss */
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 28px;
+  color: black;
+}
+
+/**
+ * Links
+ *
+ * The order of link states are based on Eric Meyer's article:
+ * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
+ */
+/* Address `outline` inconsistency between Chrome and other browsers. */
+/* Improve readability when focused and also mouse hovered in all browsers. */
+/* line 159, ../sass/_normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/**
+ * Typography
+ *
+ * To achieve a pleasant vertical rhythm, we use Compass' Vertical Rhythm mixins
+ * so that the line height of our base font becomes the basic unit of vertical
+ * measurement. We use multiples of that unit to set the top and bottom margins
+ * for our block level elements and to set the line heights of any fonts.
+ * For more information, see http://24ways.org/2006/compose-to-a-vertical-rhythm
+ */
+/* Set 1 unit of vertical rhythm on the top and bottom margin. */
+/* line 175, ../sass/_normalize.scss */
+p,
+pre {
+  margin: 1.5em 0;
+}
+
+/* line 178, ../sass/_normalize.scss */
+blockquote {
+  /* Also indent the quote on both sides. */
+  margin: 1.5em 30px;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 187, ../sass/_normalize.scss */
+h1 {
+  /* Set the font-size and line-height while keeping a proper vertical rhythm. */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: #00274c;
+  font-weight: 400;
+  font-family: "franklin-gothic-urw-comp", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 40px;
+  line-height: 2.5rem;
+  /* Set 1 unit of vertical rhythm on the top and bottom margins. */
+}
+
+/* line 201, ../sass/_normalize.scss */
+h2, h3.label-field_unit_courses {
+  color: #00274c;
+  margin: 0.25em 0;
+  font-weight: 700;
+  font-family: "franklin-gothic-urw-comp", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 32px;
+  line-height: 2rem;
+}
+
+/* line 212, ../sass/_normalize.scss */
+h3 {
+  font-size: 23px;
+  font-size: 1.4375rem;
+  line-height: 29px;
+  line-height: 1.8125rem;
+  margin: 0.75em 0 0.25em;
+}
+
+/* line 219, ../sass/_normalize.scss */
+h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 26px;
+  line-height: 1.625rem;
+  margin: 0.75em 0 0.25em;
+}
+
+/* line 226, ../sass/_normalize.scss */
+h5 {
+  font-size: 0.83em;
+  line-height: 1.80723em;
+  margin: 0.75em 0 0.25em;
+}
+
+/* line 232, ../sass/_normalize.scss */
+h6 {
+  font-size: 0.67em;
+  line-height: 2.23881em;
+  margin: 0.75em 0 0.25em;
+}
+
+/* Address styling not present in IE 8/9, Safari 5, and Chrome. */
+/* line 240, ../sass/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+/* line 246, ../sass/_normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* Address styling not present in Safari 5 and Chrome. */
+/* line 251, ../sass/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/* Address differences between Firefox and other browsers. */
+/* line 256, ../sass/_normalize.scss */
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  border: 1px solid #666;
+  padding-bottom: -1px;
+  margin: 1.5em 0;
+}
+
+/* Address styling not present in IE 8/9. */
+/* line 265, ../sass/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* Correct font family set oddly in Safari 5 and Chrome. */
+/* line 276, ../sass/_normalize.scss */
+code,
+kbd,
+pre,
+samp,
+tt,
+var {
+  font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* Improve readability of pre-formatted text in all browsers. */
+/* line 285, ../sass/_normalize.scss */
+pre {
+  white-space: pre-wrap;
+}
+
+/* Set consistent quote types. */
+/* line 297, ../sass/_normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/* Address inconsistent and variable font size in all browsers. */
+/* line 302, ../sass/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+/* line 308, ../sass/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 314, ../sass/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 317, ../sass/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/**
+ * Lists
+ */
+/* line 327, ../sass/_normalize.scss */
+dl,
+menu,
+ol,
+ul {
+  /* Address margins set differently in IE 6/7. */
+  margin: 1.5em 0;
+}
+
+/* line 334, ../sass/_normalize.scss */
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  /* Turn off margins on nested lists. */
+  margin: 0;
+}
+
+/* line 339, ../sass/_normalize.scss */
+dd {
+  margin: 0 0 0 30px;
+  /* LTR */
+}
+
+/* Address paddings set differently in IE 6/7. */
+/* line 346, ../sass/_normalize.scss */
+menu,
+ol,
+ul {
+  padding: 0 0 0 30px;
+  /* LTR */
+}
+
+/**
+ * Embedded content and figures
+ *
+ * @todo Look into adding responsive embedded video.
+ */
+/* line 364, ../sass/_normalize.scss */
+img {
+  /* Remove border when inside `a` element in IE 8/9. */
+  border: 0;
+  /* Suppress the space beneath the baseline */
+  /* vertical-align: bottom; */
+  /* Responsive images */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Correct overflow displayed oddly in IE 9. */
+/* line 387, ../sass/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Address margin not present in IE 8/9 and Safari 5. */
+/* line 392, ../sass/_normalize.scss */
+figure {
+  margin: 0;
+}
+
+/**
+ * Forms
+ */
+/* Define consistent border, margin, and padding. */
+/* line 408, ../sass/_normalize.scss */
+fieldset {
+  margin: 0 2px;
+  /* Apply borders and padding that keep the vertical rhythm. */
+  border-color: #c0c0c0;
+  border-top-style: solid;
+  border-top-width: 0.0625em;
+  padding-top: 0.4625em;
+  border-bottom-style: solid;
+  border-bottom-width: 0.0625em;
+  padding-bottom: 0.9125em;
+  border-left-style: solid;
+  border-left-width: 0.0625em;
+  padding-left: 0.9125em;
+  border-right-style: solid;
+  border-right-width: 0.0625em;
+  padding-right: 0.9125em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+/* line 423, ../sass/_normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 4. Improve appearance and consistency with IE 6/7.
+ * 5. Keep form elements constrained in their containers.
+ */
+/* line 441, ../sass/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+  max-width: 100%;
+  /* 5 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 5 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 458, ../sass/_normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 469, ../sass/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+/* line 485, ../sass/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 497, ../sass/_normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+/* line 508, ../sass/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 522, ../sass/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 532, ../sass/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* Remove inner padding and border in Firefox 4+. */
+/* line 538, ../sass/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 547, ../sass/_normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* Drupal-style form labels. */
+/* line 553, ../sass/_normalize.scss */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/**
+ * Tables
+ */
+/* line 561, ../sass/_normalize.scss */
+table {
+  /* Remove most spacing between table cells. */
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* Prevent cramped-looking tables */
+  /* width: 100%; */
+  /* Add vertical rhythm margins. */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+/* Layout rules */
+/**
+ * @file
+ * Positioning for a responsive layout.
+ *
+ * Define CSS classes to create a fluid grid layout with optional sidebars
+ * depending on whether blocks are placed in the left or right sidebars.
+ *
+ * This layout uses the Zen Grids plugin for Compass: http://zengrids.com
+ */
+/* line 28, ../sass/layouts/_responsive.scss */
+html #page {
+  min-width: 320px;
+}
+
+/**
+ * Center the page.
+ *
+ * For screen sizes larger than 1200px, prevent excessively long lines of text
+ * by setting a max-width.
+ */
+/* line 42, ../sass/layouts/_responsive.scss */
+#main,
+#header,
+#footer,
+.region-top-navbar,
+.region-bottom {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+/* Apply the shared properties of grid items in a single, efficient ruleset. */
+/* line 54, ../sass/layouts/_responsive.scss */
+#header,
+#content,
+.region-top-navbar,
+.region-sidebar-first,
+#footer {
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* Containers for grid items and flow items. */
+/* line 46, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+#header:before, #header:after,
+.region-top-navbar:before,
+.region-top-navbar:after,
+#main:before,
+#main:after,
+#footer:before,
+#footer:after {
+  content: "";
+  display: table;
+}
+/* line 50, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+#header:after,
+.region-top-navbar:after,
+#main:after,
+#footer:after {
+  clear: both;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape), screen and (min-width: 800px) {
+  /* Apply the shared properties of grid items in a single, efficient ruleset. */
+  /* line 81, ../sass/layouts/_responsive.scss */
+  #content,
+  .region-top-navbar,
+  .region-sidebar-first,
+  #footer {
+    padding-left: 15px;
+    padding-right: 15px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  /**
+   * The layout when there is only one sidebar, the left one.
+   */
+  /* line 92, ../sass/layouts/_responsive.scss */
+  .sidebar-first #content {
+    float: left;
+    width: 75%;
+    margin-left: 25%;
+    margin-right: -100%;
+  }
+  /* line 96, ../sass/layouts/_responsive.scss */
+  .sidebar-first .region-sidebar-first {
+    float: left;
+    width: 25%;
+    margin-left: 0%;
+    margin-right: -25%;
+    clear: none;
+  }
+}
+/* Component (SMACSS module) rules */
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * Adds modular sets of styles.
+ *
+ * Additional useful selectors can be found in Zen's online documentation.
+ * https://drupal.org/node/1707736
+ */
+/**
+ * Wireframes.
+ */
+/* line 22, ../sass/components/_misc.scss */
+.with-wireframes #header,
+.with-wireframes #main,
+.with-wireframes #content,
+.with-wireframes #navigation,
+.with-wireframes .region-sidebar-first,
+.with-wireframes .region-sidebar-second,
+.with-wireframes #footer,
+.with-wireframes .region-bottom {
+  outline: 1px solid #ccc;
+}
+
+/**
+ * Accessibility features.
+ */
+/* element-invisible as defined by http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+/* line 40, ../sass/components/_misc.scss */
+.element-invisible,
+.element-focusable,
+#navigation .block-menu .block__title,
+#navigation .block-menu-block .block__title {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Turns off the element-invisible effect. */
+/* line 45, ../sass/components/_misc.scss */
+.element-focusable:active, .element-focusable:focus {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ */
+/* line 62, ../sass/components/_misc.scss */
+#skip-link {
+  margin: 0;
+}
+/* line 66, ../sass/components/_misc.scss */
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/**
+ * Branding header.
+ */
+/* Wrapping link for logo. */
+/* line 81, ../sass/components/_misc.scss */
+.header__logo {
+  float: left;
+  /* LTR */
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo image. */
+/* line 88, ../sass/components/_misc.scss */
+.header__logo-image {
+  vertical-align: bottom;
+}
+
+/* Wrapper for website name and slogan. */
+/* line 93, ../sass/components/_misc.scss */
+.header__name-and-slogan {
+  float: left;
+}
+
+/* The name of the website. */
+/* line 98, ../sass/components/_misc.scss */
+.header__site-name {
+  margin: 0;
+  font-size: 2.5em;
+  line-height: 1.2em;
+}
+
+/* The link around the name of the website. */
+/* line 106, ../sass/components/_misc.scss */
+.header__site-link:link, .header__site-link:visited {
+  color: #000;
+  text-decoration: none;
+}
+/* line 112, ../sass/components/_misc.scss */
+.header__site-link:hover, .header__site-link:focus {
+  text-decoration: underline;
+}
+
+/* The slogan (or tagline) of a website. */
+/* line 118, ../sass/components/_misc.scss */
+.header__site-slogan {
+  margin: 0;
+}
+
+/* The secondary menu (login, etc.) */
+/* line 123, ../sass/components/_misc.scss */
+.header__secondary-menu {
+  float: right;
+  /* LTR */
+}
+
+/* Wrapper for any blocks placed in the header region. */
+/* line 128, ../sass/components/_misc.scss */
+.header__region {
+  /* Clear the logo. */
+  clear: both;
+}
+
+/**
+ * Navigation bar.
+ */
+/* line 136, ../sass/components/_misc.scss */
+#navigation {
+  /* Sometimes you want to prevent overlapping with main div. */
+  /* overflow: hidden; */
+  /* Main menu and secondary menu links and menu block links. */
+}
+/* line 140, ../sass/components/_misc.scss */
+#navigation .block {
+  margin-bottom: 0;
+}
+/* line 151, ../sass/components/_misc.scss */
+#navigation .links,
+#navigation .menu {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  /* LTR */
+}
+/* line 156, ../sass/components/_misc.scss */
+#navigation .links li,
+#navigation .menu li {
+  /* A simple method to get navigation links to appear in one line. */
+  float: left;
+  /* LTR */
+  padding: 0 10px 0 0;
+  /* LTR */
+  list-style-type: none;
+  list-style-image: none;
+}
+
+/**
+ * Breadcrumb navigation.
+ */
+/* line 170, ../sass/components/_misc.scss */
+.breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+/* line 174, ../sass/components/_misc.scss */
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Titles.
+ */
+/* line 190, ../sass/components/_misc.scss */
+.page__title,
+.node__title,
+.block__title,
+.comments__title,
+.comments__form-title,
+.comment__title {
+  /* Comment title. */
+  margin: 0;
+}
+
+/**
+ * Messages.
+ */
+/* line 197, ../sass/components/_misc.scss */
+.messages, .messages--status, .messages--warning, .messages--error {
+  margin: 1.5em 0;
+  padding: 10px 10px 10px 50px;
+  /* LTR */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAD6UlEQVR42s2WX0xbVRzH3YwmC4k+GF/0ZS/S267/bmnX9nL7bwstZlnbjTDYyoC5GCbB0ZW5pdJCe6swbLFA6bpWIGuRMWVjKGP+21QW3SZBSAjGh4XEaTZTH82Cm/3ztS2xs7mw4KLRk3xyzj33/H6fe5Pz7zEA/yr/vUDukj9FH6drqTaqT8EoPs/UV+nX6TD1BlUh9AqLHlmgPKLcRHmoCOWmElK/FOKTYpS8UwLJkASiUyLI3pKhlClN0g46qj+qL/pbArlbrlO1q25JeiSgR2iYJ8ywXLSg/qP6LNl2ro8+Q4MMkKCd9K2t3q3KdQnkXXIF5aISkgEJzONm1F2qW52pDJN1MI2bUBIuAdVOJWSMTPNQgX6/vkjVpvpREpag6oMqWCYta1IzbsHh9ga0RJtzY8URMdRO9U/KSuWmNQUqh2pY3CtG+fvlqJyofMAFNrZAE+7e/RWR4X4cD9tgOGsA2U2CdtMDqwqyMyIzQ5KKqAKmcyaYxkzYd3YvjGNGFtXRPRj58DT+LOemRrFnrBLyITmUDmUyO/NYgu2d26ukHVJo3tXAMGpAs+cQmh0NeClan30uwN7TgnQ6nRd4r3thOGOAJqYB2UVC79AfZAnKHGUxQa8A2tNaNLW/jKvXv8Dyb8s4yryKA4O10A3roIvpUB+swTdz1/LJZ27PQBvT5lBH1RD4BChzlQ2wBNtc22aE/ULQgzRCl4P5BPcT93GMOYz9wb2QhCRgAq35d8u/L2PXe7tADVGgBlcQ+AXQtmlvsP/gzbJZvp8PMkJCFBYh8m0knyiVSsHe0YIGZz1+/uVOvt8z7QGvnwf+ST5EIRHIUyR4fh50rbp5lsDcYR4ReAXgBrng9q/Qfa0bfy035r7Ot2dvz4IX4IEIEAXwvDzscOw4zxJUd1YfEXlE4Aa4BQHMlwzSSBeI7iXvoTxWDqKPYCFsFaKmr+YVliB0JfS89DVpiuhlB9k/tSOZTuYFvq98yI7L0/MAsVWcGp0bfW61hbahwltxSeARsIKyWKesSKQSWIwvYkvvllwfx88pgOvhwthu/AzAxlVX8vz385tLbaVxwpcLZtEw0QDjsBGctzksiE4CimZFfHp++oWHbnbuUfdB0komMgHsRN1r0MWBsEmYODF5onY92/UTwcvBxuzXcN1ccHycVSn2FaPYWwzCQUDWKIt7z3utAJ5c74Hz+OLSomynY+cVfiM/xW3JiDyZpB3FuZrj4oCwE+Ad4qWMjPHjpTtL0mzMoxyZz9yM39Q7Y85Ok930icqm+k59TL2wm9l90dZv8y/8sPAigGf/iUN/Q4anM2zOsdLe+L+4VfwBVVjDs2rTYx0AAAAASUVORK5CYII=');
+  background-position: 8px 8px;
+  /* LTR */
+  background-repeat: no-repeat;
+  border: 1px solid #be7;
+}
+
+/* line 212, ../sass/components/_misc.scss */
+.messages--warning {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACuElEQVRIiWP4//8/Ay0xSYqntTpnT252zqeJBf0Njhsykrz/pyd6/e9vcNpGVQv6q2wlm0qc/r0+IPD/3UG+/61l9v9mdrjIUc2C7hqHUzc3S///eZwBjO9tF/vfWe1wjioWTKixVm8otPn38wQT3IKfxxn/t5Va/utpsNSg2ILWcttrNzdJgQ3+dpQRjEHs+9tE/zeXWt+gyILOamuTqlxrsOtPLub+7+emBsSq/88v5wL7oqHQ9H9nmbkF2RbUF1rev7lJEuziuU3i/90ddcB4UZsoJC62ifyvK7R4QJYFrcUGrmUZ5v9hYb9hosh/bzcDMN42VRgeF9W5hv8bi/XdSbagKtfs2c1NEvCIPbaQ/7+/pwkYn17Ki0hR24T/l2eZPCfJgsZ83dCiNOP/yCnn7iau/8G+5mD8aBsHSoqqyNL9X5erHUm0BcVpRm9ubhZHMoTh/4eDzP/DA23+RwTZ/P96hAlF7t5Wof8FyfpvibKgNk8noyDZ4D9quofg1Bjr/1kJlhjiIF+Upmn/r83RzCJoQXaC3qcbm8SwGMLwvybP/H8jMGlik7u7VeB/Zqz2J7wWVGdr1uTG62J1PQgfWST1/+hiCaxyIF8UJqv9r8hQrcVpQVqkzrcbG0WwGvB2H/P/lnx5MAaxsam5vYn3f2KY+jesFpSlqfZnxWjidP2OGWL/g/0swBjExu4Lhv958Ur/i5KU+lEsCA1lYI4JUv95bZ0gTo2Pt3P+z0myBmMQG5e6mxu4/kf4Kf8EmQm3oCRNebKrvSawIGPBqRG9sMOp5hjjfwdrlf/58bKT4RaUpWvtcLZV/39iscD/H0AFP46jYwYiMeP/44u4/9tbKQODSXUH3II9G7v18hI0n8YGKv+IDVT6joxj/BVx4mgcOCde/SnITPRUJAHEGlTCEkQV19TAAN8FC67hZdFXAAAAAElFTkSuQmCC');
+  border-color: #ed5;
+}
+
+/* line 221, ../sass/components/_misc.scss */
+.messages--error {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACpElEQVR42rWWTUgbQRiGQ0Tx4MWDeFM8eBA9iKAoggiCoCiiIiL4L3oQV1CJB0UEf6iRYFpK7UniTw9VSqL2kvQsVDBpSZrtRo35czVNW3oprRf17exSl4yzu1ikAy9h59vvedhkMrMGAGoxknAk2w8MJ/WosXThiZkZt9jdLeglPjn5ATc3mhJNuNjbK0QbG3ExMICL/n6IfX0gcxB7ekDAELu6IHZ2IlJbi1hLS1BLogmPtbUhMTv7oMSamzUlqnByMxLT0/8STQkDj9TV4ZLj5OysrODl8jIu5Gs68dFR7JG6dWkJ0fFx+TpSX89IDMnwcHU1yKec12Yz3rlc4HkeLwjkXJpPip3U3+7vIx6P4ymph4eG5PlwTQ0lMdytlmBxMWKtrXLeT0zA5XTibvj9fjxfXETkb/3N/Dz2dneVuiTZtliU/rPSUsQ5ziuxZYG03IIlJdKKUPJjdRUAKMmzuTnskB/VYbdTtd9HR4g2NCi9Z2VliDY1BSnBaUEBzsrLqXyzWCiQ9HU5HA4afniIUFWV0hOqqMBpURErOM7NxWlhIZOvCwvA7S3Uxq+DA5AnZ3pO8vJYQSArC8c5Oeqx2Rj4udeLQH6+6v2B7GxW8DkjA0JmJpONwUHY7XZGIAgCzCYTeJUewmIFfqMRfEoKlQ2yJbza2oLWcLvdeDI2hk/3+iQWKzAYkJzNjg5srq9TwJ9OJ76YTNScx+ORJT66X1/grKyEbW2NgfPp6XKd/JMZySrHaQsSU1Oe+0/w3WpVgyu5HBlR6lc+H8gioevDwz6JrWwV5+3txyoSFk5DcOX1MnCyJ4Vwfb1zt1UY9SR8aioDpuppaVpwZbPTl+hHF04dOKzk8XBF8DgJC3/woU/W/EciOtELOWi8DDwp//215Q+p7kiKh2lQSAAAAABJRU5ErkJggg==');
+  border-color: #ed541d;
+}
+
+/* line 231, ../sass/components/_misc.scss */
+.messages__list {
+  margin: 0;
+}
+
+/* line 234, ../sass/components/_misc.scss */
+.messages__item {
+  list-style-image: none;
+}
+
+/* Core/module installation error messages. */
+/* line 239, ../sass/components/_misc.scss */
+.messages--error p.error {
+  color: #333;
+}
+
+/* System status report. */
+/* line 245, ../sass/components/_misc.scss */
+.ok,
+.messages--status {
+  background-color: #f8fff0;
+  color: #234600;
+}
+
+/* line 250, ../sass/components/_misc.scss */
+.warning,
+.messages--warning {
+  background-color: #fffce5;
+  color: #840;
+}
+
+/* line 255, ../sass/components/_misc.scss */
+.error,
+.messages--error {
+  background-color: #fef5f1;
+  color: #8c2e0b;
+}
+
+/**
+ * Tabs.
+ */
+/* Basic positioning styles shared by primary and secondary tabs. */
+/* line 265, ../sass/components/_misc.scss */
+.tabs-primary, .tabs-secondary {
+  overflow: hidden;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(100%, #bbbbbb), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  background-image: -moz-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  background-image: -o-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  background-image: linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+  /* IE 9 and earlier don't understand gradients. */
+  list-style: none;
+  border-bottom: 1px solid #bbbbbb \0/ie;
+  margin: 1.5em 0;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+
+/* line 275, ../sass/components/_misc.scss */
+.tabs-primary__tab, .tabs-primary__tab.is-active, .tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+  float: left;
+  /* LTR */
+  margin: 0 3px;
+}
+
+/* line 279, ../sass/components/_misc.scss */
+a.tabs-primary__tab-link, a.tabs-primary__tab-link.is-active, a.tabs-secondary__tab-link, a.tabs-secondary__tab-link.is-active {
+  border: 1px solid #e9e9e9;
+  border-right: 0;
+  border-bottom: 0;
+  display: block;
+  line-height: 1.5em;
+  text-decoration: none;
+}
+
+/* Primary tabs. */
+/* line 292, ../sass/components/_misc.scss */
+.tabs-primary__tab, .tabs-primary__tab.is-active {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  text-shadow: 1px 1px 0 white;
+  border: 1px solid #bbbbbb;
+  border-bottom-color: transparent;
+  /* IE 9 and earlier don't understand gradients. */
+  border-bottom: 0 \0/ie;
+}
+
+/* line 301, ../sass/components/_misc.scss */
+.is-active.tabs-primary__tab {
+  border-bottom-color: white;
+}
+
+/* line 307, ../sass/components/_misc.scss */
+a.tabs-primary__tab-link, a.tabs-primary__tab-link.is-active {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  color: #333;
+  background-color: #dedede;
+  letter-spacing: 1px;
+  padding: 0 1em;
+  text-align: center;
+}
+
+/* line 317, ../sass/components/_misc.scss */
+a.tabs-primary__tab-link:hover, a.tabs-primary__tab-link:focus {
+  background-color: #e9e9e9;
+  border-color: #f2f2f2;
+}
+
+/* line 321, ../sass/components/_misc.scss */
+a.tabs-primary__tab-link:active, a.tabs-primary__tab-link.is-active {
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9e9), color-stop(100%, rgba(233, 233, 233, 0)));
+  background-image: -webkit-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: -moz-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: -o-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  border-color: #fff;
+}
+
+/* Secondary tabs. */
+/* line 345, ../sass/components/_misc.scss */
+.tabs-secondary {
+  font-size: .9em;
+  /* Collapse bottom margin of ul.primary. */
+  margin-top: -1.5em;
+}
+
+/* line 352, ../sass/components/_misc.scss */
+.tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+  margin: 0.75em 3px;
+}
+
+/* line 358, ../sass/components/_misc.scss */
+a.tabs-secondary__tab-link, a.tabs-secondary__tab-link.is-active {
+  -webkit-border-radius: 0.75em;
+  -moz-border-radius: 0.75em;
+  -ms-border-radius: 0.75em;
+  -o-border-radius: 0.75em;
+  border-radius: 0.75em;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  text-shadow: 1px 1px 0 white;
+  background-color: #f2f2f2;
+  color: #666;
+  padding: 0 .5em;
+}
+
+/* line 367, ../sass/components/_misc.scss */
+a.tabs-secondary__tab-link:hover, a.tabs-secondary__tab-link:focus {
+  background-color: #dedede;
+  border-color: #999;
+  color: #333;
+}
+
+/* line 372, ../sass/components/_misc.scss */
+a.tabs-secondary__tab-link:active, a.tabs-secondary__tab-link.is-active {
+  text-shadow: 1px 1px 0 #333333;
+  background-color: #666;
+  border-color: #000;
+  color: #fff;
+}
+
+/**
+ * Inline styles.
+ */
+/* List of links generated by theme_links(). */
+/* line 400, ../sass/components/_misc.scss */
+.inline {
+  display: inline;
+  padding: 0;
+}
+/* line 404, ../sass/components/_misc.scss */
+.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/* The inline field label used by the Fences module. */
+/* line 412, ../sass/components/_misc.scss */
+span.field-label {
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/**
+ * "More" links.
+ */
+/* line 419, ../sass/components/_misc.scss */
+.more-link {
+  text-align: right;
+  /* LTR */
+}
+
+/* line 422, ../sass/components/_misc.scss */
+.more-help-link {
+  text-align: right;
+  /* LTR */
+}
+
+/* line 425, ../sass/components/_misc.scss */
+.more-help-link a {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7UlEQVR42qWTPQqDQBCFcwSPkCNITpAj5AjeIm1uYpkyR7Cy2Mot7OwsBAsRwUKwmOwLGRle3EIy8PyBfZ/z3J2TiPylz8VWWZZpUB40BonRKyizaxkA88MYYiqCEgv4MTvnZJom0VqWRbz3FlJZgLYtqmEY1Lg9r+sKsIXcLSC3AC019H0vqLquLeC5AfiHYSGkcdAJimKIBQiJ4+CO92OAtm0FNc8zOjkMwE5Q63FAtbeg6zpAYvG8BWR7i5qmQYwY4MIHqYhE2DOPQWcGJBQF2XU72ZzyUeZ5GCNt5/hybJgYdAXsq5sOEE/jG6dC5IOqCXTmAAAAAElFTkSuQmCC');
+  background-position: 0 50%;
+  /* LTR */
+  background-repeat: no-repeat;
+  padding: 1px 0 1px 20px;
+  /* LTR */
+}
+
+/**
+ * Pager.
+ */
+/* A list of page numbers when more than 1 page of content is available. */
+/* line 440, ../sass/components/_misc.scss */
+.pager {
+  clear: both;
+  padding: 0;
+  text-align: center;
+}
+
+/* line 445, ../sass/components/_misc.scss */
+.pager-item,
+.pager-first,
+.pager-previous,
+.pager-next,
+.pager-last,
+.pager-ellipsis, .pager-current {
+  display: inline;
+  padding: 0 0.5em;
+  list-style-type: none;
+  background-image: none;
+}
+
+/* line 457, ../sass/components/_misc.scss */
+.pager-item,
+.pager-first,
+.pager-previous,
+.pager-next,
+.pager-last,
+.pager-ellipsis {
+  /* A concatenation of several list items using an ellipsis. */
+}
+
+/* The current page's list item. */
+/* line 462, ../sass/components/_misc.scss */
+.pager-current {
+  font-weight: bold;
+}
+
+/**
+ * Blocks.
+ */
+/* Block wrapper. */
+/* line 472, ../sass/components/_misc.scss */
+.block {
+  margin-bottom: 1.5em;
+}
+
+/**
+ * Menus.
+ */
+/* line 479, ../sass/components/_misc.scss */
+.menu__item.is-leaf {
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHBAMAAAA2fErgAAAAD1BMVEX///+/v7+Li4sAAADAwMBFvsw8AAAAAXRSTlMAQObYZgAAAB1JREFUCFtjYAADYwMGBmYVZSDhKAwkFJWhYiAAAB2+Aa/9ugeaAAAAAElFTkSuQmCC');
+  list-style-type: square;
+}
+
+/* line 486, ../sass/components/_misc.scss */
+.menu__item.is-expanded {
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
+  list-style-type: circle;
+}
+
+/* line 493, ../sass/components/_misc.scss */
+.menu__item.is-collapsed {
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC');
+  /* LTR */
+  list-style-type: disc;
+}
+
+/* The active item in a Drupal menu. */
+/* line 502, ../sass/components/_misc.scss */
+.menu a.active {
+  color: #000;
+}
+
+/**
+ * Marker.
+ */
+/* The "new" or "updated" marker. */
+/* line 512, ../sass/components/_misc.scss */
+.new,
+.update {
+  color: #c00;
+  /* Remove background highlighting from <mark> in normalize. */
+  background-color: transparent;
+}
+
+/**
+ * Unpublished note.
+ */
+/* The word "Unpublished" displayed underneath the content. */
+/* line 523, ../sass/components/_misc.scss */
+.unpublished {
+  display: block;
+  height: 0;
+  overflow: visible;
+  /* Remove background highlighting from <mark> in normalize. */
+  background-color: transparent;
+  color: #d8d8d8;
+  font-size: 75px;
+  line-height: 1;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  /* A very nice CSS3 property. */
+  word-wrap: break-word;
+}
+
+/**
+ * Comments.
+ */
+/* Wrapper for the list of comments and its title. */
+/* line 552, ../sass/components/_misc.scss */
+.comments {
+  margin: 1.5em 0;
+}
+
+/* Preview of the comment before submitting new or updated comment. */
+/* line 557, ../sass/components/_misc.scss */
+.comment-preview {
+  /* Drupal core will use a #ffffea background. See #1110842. */
+  background-color: #ffffea;
+}
+
+/* Wrapper for a single comment. */
+/* line 563, ../sass/components/_misc.scss */
+.comment {
+  /* Comment's permalink wrapper. */
+}
+/* line 566, ../sass/components/_misc.scss */
+.comment .permalink {
+  text-transform: uppercase;
+  font-size: 75%;
+}
+
+/* Nested comments are indented. */
+/* line 573, ../sass/components/_misc.scss */
+.indented {
+  /* Drupal core uses a 25px left margin. */
+  margin-left: 30px;
+  /* LTR */
+}
+
+/**
+ * Forms.
+ */
+/* Wrapper for a form element (or group of form elements) and its label. */
+/* line 583, ../sass/components/_misc.scss */
+.form-item {
+  margin: 1.5em 0;
+  /* Pack groups of checkboxes and radio buttons closer together. */
+  /* Form items in a table. */
+  /* Highlight the form elements that caused a form submission error. */
+  /* The descriptive help text (separate from the label). */
+}
+/* line 588, ../sass/components/_misc.scss */
+.form-checkboxes .form-item, .form-radios .form-item {
+  /* Drupal core uses "0.4em 0". */
+  margin: 0;
+}
+/* line 595, ../sass/components/_misc.scss */
+tr.odd .form-item, tr.even .form-item {
+  margin: 0;
+}
+/* line 602, ../sass/components/_misc.scss */
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 1px solid #c00;
+}
+/* line 607, ../sass/components/_misc.scss */
+.form-item .description {
+  font-size: 0.85em;
+}
+
+/* line 614, ../sass/components/_misc.scss */
+.form-type-radio .description,
+.form-type-checkbox .description {
+  margin-left: 2.4em;
+}
+
+/* The part of the label that indicates a required field. */
+/* line 620, ../sass/components/_misc.scss */
+.form-required {
+  color: #c00;
+}
+
+/* Labels for radios and checkboxes. */
+/* line 625, ../sass/components/_misc.scss */
+label.option {
+  display: inline;
+  font-weight: normal;
+}
+
+/* Buttons used by contrib modules like Media. */
+/* line 631, ../sass/components/_misc.scss */
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+/* Password confirmation. */
+/* line 637, ../sass/components/_misc.scss */
+.password-parent,
+.confirm-parent {
+  margin: 0;
+}
+
+/* Drupal's default login form block. */
+/* line 642, ../sass/components/_misc.scss */
+#user-login-form {
+  text-align: left;
+  /* LTR */
+}
+
+/**
+ * OpenID
+ *
+ * The default styling for the OpenID login link seems to assume Garland's
+ * styling of list items.
+ */
+/* OpenID creates a new ul above the login form's links. */
+/* line 654, ../sass/components/_misc.scss */
+.openid-links {
+  /* Position OpenID's ul next to the rest of the links. */
+  margin-bottom: 0;
+}
+
+/* The "Log in using OpenID" and "Cancel OpenID login" links. */
+/* line 661, ../sass/components/_misc.scss */
+.openid-link,
+.user-link {
+  margin-top: 1.5em;
+}
+
+/* line 665, ../sass/components/_misc.scss */
+html.js #user-login-form li.openid-link,
+#user-login-form li.openid-link {
+  /* Un-do some of the padding on the ul list. */
+  margin-left: -20px;
+  /* LTR */
+}
+
+/* line 669, ../sass/components/_misc.scss */
+#user-login ul {
+  margin: 1.5em 0;
+}
+
+/**
+ * Drupal admin tables.
+ */
+/* line 677, ../sass/components/_misc.scss */
+form th {
+  text-align: left;
+  /* LTR */
+  padding-right: 1em;
+  /* LTR */
+  border-bottom: 3px solid #ccc;
+}
+/* line 682, ../sass/components/_misc.scss */
+form tbody {
+  border-top: 1px solid #ccc;
+}
+/* line 685, ../sass/components/_misc.scss */
+form table ul {
+  margin: 0;
+}
+
+/* line 690, ../sass/components/_misc.scss */
+tr.even,
+tr.odd {
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+  padding: 0.1em 0.6em;
+}
+
+/* line 695, ../sass/components/_misc.scss */
+tr.even {
+  background-color: #fff;
+}
+
+/* Markup generated by theme_tablesort_indicator(). */
+/* line 710, ../sass/components/_misc.scss */
+td.active {
+  background-color: #ddd;
+}
+
+/* Center checkboxes inside table cell. */
+/* line 716, ../sass/components/_misc.scss */
+td.checkbox,
+th.checkbox {
+  text-align: center;
+}
+
+/* Drupal core wrongly puts this in system.menus.css. Since we override that, add it back. */
+/* line 721, ../sass/components/_misc.scss */
+td.menu-disabled {
+  background: #ccc;
+}
+
+/**
+ * Autocomplete.
+ *
+ * @see autocomplete.js
+ */
+/* Suggestion list. */
+/* line 732, ../sass/components/_misc.scss */
+#autocomplete .selected {
+  background: #0072b9;
+  color: #fff;
+}
+
+/**
+ * Collapsible fieldsets.
+ *
+ * @see collapse.js
+ */
+/* line 743, ../sass/components/_misc.scss */
+html.js .collapsible .fieldset-legend {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
+  background-position: 5px 65%;
+  /* LTR */
+  background-repeat: no-repeat;
+  padding-left: 15px;
+  /* LTR */
+}
+/* line 752, ../sass/components/_misc.scss */
+html.js .collapsed .fieldset-legend {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC');
+  /* LTR */
+  background-position: 5px 50%;
+  /* LTR */
+}
+/* line 759, ../sass/components/_misc.scss */
+.fieldset-legend .summary {
+  color: #999;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
+
+/**
+ * TableDrag behavior.
+ *
+ * @see tabledrag.js
+ */
+/* line 771, ../sass/components/_misc.scss */
+tr.drag {
+  background-color: #fffff0;
+}
+
+/* line 774, ../sass/components/_misc.scss */
+tr.drag-previous {
+  background-color: #ffd;
+}
+
+/* line 777, ../sass/components/_misc.scss */
+.tabledrag-toggle-weight {
+  font-size: 0.9em;
+}
+
+/**
+ * TableSelect behavior.
+ *
+ * @see tableselect.js
+ */
+/* line 786, ../sass/components/_misc.scss */
+tr.selected td {
+  background: #ffc;
+}
+
+/**
+ * Progress bar.
+ *
+ * @see progress.js
+ */
+/* line 795, ../sass/components/_misc.scss */
+.progress {
+  font-weight: bold;
+}
+/* line 798, ../sass/components/_misc.scss */
+.progress .bar {
+  background: #ccc;
+  border-color: #666;
+  margin: 0 0.2em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 804, ../sass/components/_misc.scss */
+.progress .filled {
+  background-color: #0072b9;
+  background-image: url('../images/progress.gif?1470444554');
+}
+
+/**
+ * @file
+ * Print styling
+ *
+ * We provide some sane print styling for Drupal using Zen's layout method.
+ */
+/**
+ * By importing this CSS file as media "all", we allow this print file to be
+ * aggregated with other stylesheets, for improved front-end performance.
+ */
+@media print {
+  /* Underline all links. */
+  /* line 16, ../sass/_print.scss */
+  a:link,
+  a:visited {
+    text-decoration: underline !important;
+    /* Don't underline header. */
+  }
+  /* line 20, ../sass/_print.scss */
+  a:link.header__site-link,
+  a:visited.header__site-link {
+    text-decoration: none !important;
+  }
+
+  /* line 25, ../sass/_print.scss */
+  #content {
+    /* Add visible URL after links. */
+    /* Only display useful links. */
+    /* Add visible title after abbreviations. */
+  }
+  /* line 27, ../sass/_print.scss */
+  #content a[href]:after {
+    content: " (" attr(href) ")";
+    font-weight: normal;
+    font-size: 16px;
+  }
+  /* line 35, ../sass/_print.scss */
+  #content a[href^="javascript:"]:after,
+  #content a[href^="#"]:after {
+    content: "";
+  }
+  /* line 40, ../sass/_print.scss */
+  #content abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /* line 43, ../sass/_print.scss */
+  #content .field-name-field-document-license-tags {
+    /* Only display useful links. */
+    /* Add visible title after abbreviations. */
+  }
+  /* line 44, ../sass/_print.scss */
+  #content .field-name-field-document-license-tags a[href]:after {
+    content: "" !important;
+  }
+  /* line 49, ../sass/_print.scss */
+  #content .field-name-field-document-license-tags a[href^="javascript:"]:after,
+  #content .field-name-field-document-license-tags a[href^="#"]:after {
+    content: "";
+  }
+  /* line 53, ../sass/_print.scss */
+  #content .field-name-field-document-license-tags abbr[title]:after {
+    content: "";
+  }
+
+  /* Un-float the content. */
+  /* line 61, ../sass/_print.scss */
+  #content {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Turn off any background colors or images. */
+  /* line 72, ../sass/_print.scss */
+  body,
+  #page,
+  #main,
+  #content {
+    color: #000;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Hide sidebars and nav elements. */
+  /* line 97, ../sass/_print.scss */
+  .material-anchors,
+  .session-anchors,
+  .top-bar-wrapper,
+  #skip-link,
+  #toolbar,
+  #navigation,
+  #block-panels-mini-header-navigation-and-search,
+  .pane-header-navigation-and-search,
+  .region-sidebar-first,
+  .region-sidebar-second,
+  #footer,
+  .breadcrumb,
+  .tabs,
+  .action-links,
+  .links,
+  .book-navigation,
+  .forum-topic-navigation,
+  .pager,
+  .feed-icons {
+    visibility: hidden;
+    display: none;
+  }
+
+  /* line 102, ../sass/_print.scss */
+  #course-accordion.ui-accordion .ui-accordion-content,
+  #jquery-ui-filter.ui-accordion .ui-accordion-content {
+    display: block !important;
+  }
+}
+/* SMACSS theme rules */
+/* @import "theme-A"; */
+/* @import "theme-B"; */
+/* line 31, ../sass/styles.scss */
+#footer ul li,
+.menu__item.is-collapsed, .menu__item.is-expanded, .menu__item.is-leaf {
+  list-style: none;
+  list-style-image: none;
+}
+
+/* line 36, ../sass/styles.scss */
+a {
+  color: #19699b;
+  text-decoration: none;
+}
+/* line 39, ../sass/styles.scss */
+a:hover {
+  text-decoration: underline;
+}
+/* line 42, ../sass/styles.scss */
+a.active {
+  color: #19699b;
+}
+
+/* line 46, ../sass/styles.scss */
+p {
+  margin: .75em 0;
+}
+
+/* line 50, ../sass/styles.scss */
+ol, ul {
+  margin: 0.5em 0 1em;
+}
+/* line 52, ../sass/styles.scss */
+ol li, ul li {
+  margin-bottom: 0.5em;
+}
+
+/* line 57, ../sass/styles.scss */
+ul.menu li {
+  margin-bottom: 0;
+}
+
+/* line 60, ../sass/styles.scss */
+#content .breadcrumb {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  margin-bottom: 1em;
+}
+
+/* line 65, ../sass/styles.scss */
+.block {
+  margin-bottom: 0;
+}
+
+/* line 70, ../sass/styles.scss */
+#logo img {
+  width: 100%;
+}
+
+/* line 74, ../sass/styles.scss */
+span.field-label.label-field_blog_author {
+  padding-right: 0.15em;
+}
+
+/* line 78, ../sass/styles.scss */
+#main {
+  padding-top: 1em;
+}
+
+/* line 82, ../sass/styles.scss */
+.front #content {
+  margin-top: 1em;
+}
+
+/* line 88, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search,
+.menu-block-sidebar_menu,
+#block-menu-block-1 {
+  font-family: "franklin-gothic-urw-comp", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+}
+
+/* line 93, ../sass/styles.scss */
+.header-wrapper {
+  background: url("../images/openmibannerbckgrd.jpg") no-repeat top left transparent;
+  background-size: cover;
+}
+
+/* line 103, ../sass/styles.scss */
+#block-menu-block-sidebar-menu,
+#block-search-form {
+  display: none;
+}
+
+/* line 105, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search {
+  clear: both;
+  padding: 5px 0 8px;
+  position: relative;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 113, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation {
+  display: table-cell;
+  background-color: #00274c;
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+}
+/* line 119, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation h2.pane-title, #block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation h3.pane-title.label-field_unit_courses {
+  padding: 0 8px 0 12px;
+  margin: 0;
+  cursor: pointer;
+  height: 36px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: white;
+  background-color: #19699b;
+  font-weight: normal;
+  border-bottom: 1px solid #00274c;
+}
+/* line 132, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu {
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 200%;
+}
+/* line 138, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu li {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 52px;
+  line-height: 3.25rem;
+  list-style-type: none;
+  margin: 0;
+}
+/* line 143, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu li a {
+  text-decoration: none;
+  border-bottom: 1px solid #00274c;
+  display: block;
+  width: auto;
+  color: white;
+  line-height: 1em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #00274c;
+}
+/* line 153, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu li a:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #19699b;
+}
+/* line 158, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu li a.active {
+  color: white;
+  background-color: #19699b;
+}
+/* line 163, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu li a.menu-external-link {
+  background: url("../images/external-link.png") no-repeat scroll 95% 50% transparent;
+}
+/* line 165, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu li a.menu-external-link:hover {
+  background: url("../images/external-link.png") no-repeat scroll 95% 50%;
+}
+/* line 169, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu li a.menu-internal-link {
+  background: url("../images/internal-key.png") no-repeat scroll 95% 50% transparent;
+}
+/* line 176, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu ul.menu {
+  width: 100%;
+  border-top: none;
+}
+/* line 179, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu ul.menu li {
+  border-left: none;
+  border-right: none;
+}
+/* line 180, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu ul.menu li.last {
+  border-bottom: none;
+}
+/* line 182, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu ul.menu ul.menu {
+  border-top: none;
+}
+/* line 183, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul.menu ul.menu ul.menu ul.menu {
+  border-top: none;
+}
+/* line 184, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul li a {
+  padding-left: 1em;
+}
+/* line 185, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul li ul li a {
+  padding-left: 2em;
+}
+/* line 186, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul li ul li ul li a {
+  padding-left: 3em;
+}
+/* line 187, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation ul li ul li ul li ul li a {
+  padding-left: 4em;
+}
+/* line 191, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-search-form {
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: table-cell;
+  position: relative;
+  float: left;
+  width: 50%;
+  z-index: 10;
+}
+/* line 200, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-search-form .views-exposed-widgets {
+  margin: 0;
+}
+/* line 204, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-search-form .views-exposed-form .views-exposed-widget {
+  float: none;
+  padding: 0;
+}
+/* line 209, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-search-form .form-type-textfield {
+  position: relative;
+}
+/* line 213, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-search-form label {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+/* line 217, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-search-form .form-text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  color: #00274c;
+  width: 100%;
+  padding: 6px 38px 6px 8px;
+  height: 35px;
+  background-color: #efefef;
+  border-radius: 0;
+  border: 1px solid transparent;
+}
+/* line 230, ../sass/styles.scss */
+#block-panels-mini-header-navigation-and-search .pane-search-form .form-submit {
+  background: none;
+  position: absolute;
+  height: 36px;
+  width: 36px;
+  top: 0px;
+  right: -5px;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 245, ../sass/styles.scss */
+#footer {
+  clear: both;
+  border-top: 1px solid #00274c;
+  padding-top: 2em;
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+/* line 252, ../sass/styles.scss */
+#footer .footer-block-wrapper {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 18px;
+  line-height: 1.125rem;
+}
+/* line 254, ../sass/styles.scss */
+#footer .footer-block-wrapper a {
+  text-decoration: underline;
+}
+/* line 258, ../sass/styles.scss */
+#footer .footer-logo {
+  float: left;
+}
+/* line 260, ../sass/styles.scss */
+#footer .footer-logo.logo-library {
+  width: 90px;
+  margin-right: 2em;
+}
+/* line 264, ../sass/styles.scss */
+#footer .footer-logo.logo-hits {
+  width: 112px;
+}
+/* line 268, ../sass/styles.scss */
+#footer .cc-logo {
+  width: 125px;
+  margin: 0 auto 1em;
+}
+/* line 272, ../sass/styles.scss */
+#footer .footer-logo-text {
+  clear: both;
+}
+/* line 276, ../sass/styles.scss */
+#footer .footer-logo-wrapper {
+  width: 100%;
+  float: left;
+  margin-bottom: 2em;
+}
+/* line 281, ../sass/styles.scss */
+#footer .cc-wrapper {
+  width: 100%;
+  clear: both;
+}
+/* line 285, ../sass/styles.scss */
+#footer .footer-logos {
+  width: 230px;
+  margin: 0 auto;
+}
+
+/* line 291, ../sass/styles.scss */
+.top-bar-wrapper {
+  width: 100%;
+  float: left;
+  padding-top: 1.5em;
+}
+
+/* line 296, ../sass/styles.scss */
+.header-inner-wrapper {
+  clear: both;
+  width: 100%;
+  padding-top: 1em;
+}
+
+/* line 301, ../sass/styles.scss */
+.social-wrapper {
+  float: right;
+}
+/* line 303, ../sass/styles.scss */
+.social-wrapper .social-item {
+  float: left;
+  background-color: #655a52;
+  height: 25px;
+  width: 28px;
+  text-align: center;
+  padding: 1px;
+  margin-right: 8px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+/* line 315, ../sass/styles.scss */
+.social-wrapper .social-item.email a:focus, .social-wrapper .social-item.email:hover {
+  background-color: #699d3f;
+}
+/* line 322, ../sass/styles.scss */
+.social-wrapper .social-item.rss a:focus, .social-wrapper .social-item.rss:hover {
+  background-color: #ea851f;
+}
+/* line 328, ../sass/styles.scss */
+.social-wrapper .social-item.facebook a:focus, .social-wrapper .social-item.facebook:hover {
+  background-color: #425a9c;
+}
+/* line 334, ../sass/styles.scss */
+.social-wrapper .social-item.twitter a:focus, .social-wrapper .social-item.twitter:hover {
+  background-color: #46a9e2;
+}
+/* line 340, ../sass/styles.scss */
+.social-wrapper .social-item.youtube a:focus, .social-wrapper .social-item.youtube:hover {
+  background-color: #f63233;
+}
+/* line 346, ../sass/styles.scss */
+.social-wrapper .social-item.slideshare a:focus, .social-wrapper .social-item.slideshare:hover {
+  background-color: #169da2;
+}
+/* line 350, ../sass/styles.scss */
+.social-wrapper .social-item a {
+  display: block;
+  line-height: 28px;
+  color: white;
+}
+/* line 354, ../sass/styles.scss */
+.social-wrapper .social-item a:hover {
+  text-decoration: none;
+}
+
+/* line 361, ../sass/styles.scss */
+.paragraphs-items-field-text-link-block .field-name-field-link {
+  text-align: right;
+}
+/* line 363, ../sass/styles.scss */
+.paragraphs-items-field-text-link-block .field-name-field-link a {
+  background-color: #19699b;
+  color: white;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+/* line 368, ../sass/styles.scss */
+.paragraphs-items-field-text-link-block .field-name-field-link a:before {
+  content: ">> ";
+}
+/* line 373, ../sass/styles.scss */
+.paragraphs-items-field-text-link-block .paragraphs-item-paragraph-text {
+  margin-top: 1em;
+}
+
+/* line 380, ../sass/styles.scss */
+#block-views-promos-block-promoblock {
+  margin-top: 2em;
+  border-top: 1px solid #19699b;
+  padding-top: 1em;
+}
+
+/* line 386, ../sass/styles.scss */
+.top-navbar-wrapper {
+  display: none;
+}
+
+/* line 390, ../sass/styles.scss */
+#block-views-front-links-block-frontlinks {
+  clear: both;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 2em;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+/* line 395, ../sass/styles.scss */
+#block-views-front-links-block-frontlinks .views-responsive-grid {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 398, ../sass/styles.scss */
+#block-views-front-links-block-frontlinks .views-responsive-grid .views-column {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+/* line 403, ../sass/styles.scss */
+#block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-image img {
+  width: 100%;
+}
+/* line 406, ../sass/styles.scss */
+#block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-description,
+#block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-text {
+  display: none;
+}
+
+/* line 414, ../sass/styles.scss */
+.node-type-openmich-blog .blog-image-wrapper,
+.view-open-mich-blog .blog-image-wrapper {
+  display: none;
+}
+
+/* line 421, ../sass/styles.scss */
+.node-type-unit-landing-page .course-image-wrapper,
+.node-type-course .course-image-wrapper {
+  display: none;
+}
+
+/* line 429, ../sass/styles.scss */
+.node-type-course .label-field_course_term_date,
+.node-type-course .label-field_course_published_date,
+.node-type-course .label-field_course_revised_date {
+  clear: left;
+  float: left;
+  font-weight: 600;
+}
+/* line 436, ../sass/styles.scss */
+.node-type-course .field-name-field-course-term-date,
+.node-type-course .field-name-field-course-published-date,
+.node-type-course .field-name-field-course-revised-date {
+  display: block;
+}
+
+/* line 441, ../sass/styles.scss */
+.paragraphs-items-field-downloads-access {
+  clear: both;
+}
+
+/* line 445, ../sass/styles.scss */
+.field-name-field-document-license-tags {
+  display: inline-block;
+}
+/* line 449, ../sass/styles.scss */
+.field-name-field-document-license-tags .field-name-field-license-image {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+/* line 455, ../sass/styles.scss */
+.field-name-field-document-license-tags .link-wrapper a:hover {
+  text-decoration: none;
+}
+
+/* line 462, ../sass/styles.scss */
+.course-content-wrapper.sessions,
+.course-content-wrapper.materials,
+.paragraphs-items-field-course-overview {
+  clear: left;
+  width: 100%;
+  float: left;
+  margin-top: 1.5em;
+}
+
+/* line 470, ../sass/styles.scss */
+#course-accordion {
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  color: black;
+  font-size: 17px;
+  font-size: 1.0625rem;
+  line-height: 22px;
+  line-height: 1.375rem;
+}
+/* line 473, ../sass/styles.scss */
+#course-accordion p {
+  margin: 0 0 0.75em;
+}
+/* line 478, ../sass/styles.scss */
+#course-accordion .ui-corner-top,
+#course-accordion .ui-corner-bottom,
+#course-accordion .ui-corner-all {
+  border-radius: 0;
+}
+/* line 488, ../sass/styles.scss */
+#course-accordion .ui-state-active,
+#course-accordion .ui-widget-content .ui-state-active,
+#course-accordion .ui-widget-header .ui-state-active,
+#course-accordion .ui-state-default,
+#course-accordion .ui-widget-content,
+#course-accordion .ui-widget-content .ui-state-default,
+#course-accordion .ui-widget-header .ui-state-default {
+  border: none;
+  color: black;
+  background: none;
+  border-radius: 0;
+}
+/* line 495, ../sass/styles.scss */
+#course-accordion .ui-accordion-header {
+  border-top: 1px solid #19699b;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  color: #00274c;
+  padding: 0.25em 2em;
+}
+/* line 500, ../sass/styles.scss */
+#course-accordion .ui-accordion-header:hover {
+  color: #19699b;
+}
+/* line 504, ../sass/styles.scss */
+#course-accordion h3.ui-accordion-header:last-of-type {
+  border-bottom: 1px solid #19699b;
+}
+/* line 506, ../sass/styles.scss */
+#course-accordion h3.ui-accordion-header:last-of-type.ui-state-active {
+  border-bottom: none;
+}
+/* line 509, ../sass/styles.scss */
+#course-accordion h3.ui-accordion-header:last-of-type .ui-accordion-content-active {
+  border-bottom: 1px solid #19699b;
+}
+/* line 513, ../sass/styles.scss */
+#course-accordion .content.ui-accordion-content {
+  border-top: 1px dotted #19699b;
+  padding-top: 0.5em;
+}
+/* line 518, ../sass/styles.scss */
+#course-accordion a.fa {
+  font-size: 30px;
+}
+/* line 523, ../sass/styles.scss */
+#course-accordion .creator-bio-wrapper .field-name-field-creator-image {
+  width: 18%;
+  margin-right: 2%;
+  float: left;
+}
+/* line 527, ../sass/styles.scss */
+#course-accordion .creator-bio-wrapper .field-name-field-creator-image img {
+  width: 100%;
+}
+
+/* line 534, ../sass/styles.scss */
+.paragraphs-items-field-creator-bios {
+  clear: both;
+  width: 100%;
+  float: left;
+}
+/* line 538, ../sass/styles.scss */
+.paragraphs-items-field-creator-bios .paragraphs-item-creator {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-bottom: 1.5em;
+}
+/* line 544, ../sass/styles.scss */
+.paragraphs-items-field-creator-bios .field-name-field-creator-image {
+  width: 18%;
+  margin-right: 2%;
+  float: left;
+}
+/* line 548, ../sass/styles.scss */
+.paragraphs-items-field-creator-bios .field-name-field-creator-image img {
+  width: 100%;
+}
+/* line 551, ../sass/styles.scss */
+.paragraphs-items-field-creator-bios .field-name-field-creator-text ul, .paragraphs-items-field-creator-bios .field-name-field-creator-text ol {
+  display: inline-block;
+  margin-left: 2em;
+}
+
+/* line 559, ../sass/styles.scss */
+a.fa {
+  font-size: 20px;
+}
+
+/* line 567, ../sass/styles.scss */
+.field-name-field-unit-courses h2.node-title, .field-name-field-unit-courses h3.node-title.label-field_unit_courses {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 22px;
+  line-height: 1.375rem;
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-weight: normal;
+}
+/* line 571, ../sass/styles.scss */
+.field-name-field-unit-courses h2.node-title:before, .field-name-field-unit-courses h3.node-title.label-field_unit_courses:before {
+  content: ">";
+  padding-right: .75em;
+}
+
+/* line 578, ../sass/styles.scss */
+.field-name-field-unit-website {
+  text-align: right;
+}
+/* line 580, ../sass/styles.scss */
+.field-name-field-unit-website:before {
+  content: ">>";
+  padding-right: 0.5em;
+}
+
+/* line 587, ../sass/styles.scss */
+.node-type-unit-landing-page .unit-view-link {
+  text-align: right;
+}
+/* line 589, ../sass/styles.scss */
+.node-type-unit-landing-page .unit-view-link:before {
+  content: ">>";
+  padding-right: 0.5em;
+}
+/* line 598, ../sass/styles.scss */
+.node-type-unit-landing-page .field-name-field-unit-details {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 1px solid #19699b;
+  margin-top: 1em;
+  padding-top: 0.5em;
+}
+/* line 607, ../sass/styles.scss */
+.node-type-unit-landing-page .field-name-field-unit-details .field-item {
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+/* line 610, ../sass/styles.scss */
+.node-type-unit-landing-page .field-name-field-unit-details .field-item.even {
+  background-color: #ececec;
+}
+/* line 613, ../sass/styles.scss */
+.node-type-unit-landing-page .field-name-field-unit-details .field-item.first {
+  margin-top: 1em;
+}
+
+/* line 620, ../sass/styles.scss */
+.view-open-mich-blog .blog-author-label {
+  float: left;
+  padding-right: 6px;
+}
+/* line 624, ../sass/styles.scss */
+.view-open-mich-blog .field-name-field-blog-text {
+  clear: left;
+}
+/* line 628, ../sass/styles.scss */
+.view-open-mich-blog .field-name-field-blog-date,
+.view-open-mich-blog .blog-author {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 18px;
+  line-height: 1.125rem;
+}
+/* line 631, ../sass/styles.scss */
+.view-open-mich-blog .views-row {
+  border-bottom: 1px dotted #00274c;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* line 638, ../sass/styles.scss */
+#block-panels-mini-open-michigan-blog-archive {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 1.5em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #19699b;
+}
+/* line 644, ../sass/styles.scss */
+#block-panels-mini-open-michigan-blog-archive h2.pane-title, #block-panels-mini-open-michigan-blog-archive h3.pane-title.label-field_unit_courses {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  color: white;
+  background-color: #19699b;
+  margin: 0;
+  padding: 0 0.5em;
+  font-weight: normal;
+}
+/* line 655, ../sass/styles.scss */
+#block-panels-mini-open-michigan-blog-archive .view-open-mich-blog {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 18px;
+  line-height: 1.125rem;
+  padding: 0 0.5em;
+}
+/* line 659, ../sass/styles.scss */
+#block-panels-mini-open-michigan-blog-archive .view-open-mich-blog .views-summary {
+  padding: 0.25em 0;
+}
+
+/* line 667, ../sass/styles.scss */
+.session-anchors,
+.material-anchors,
+.section-anchors-wrapper {
+  padding-top: 12px;
+}
+/* line 669, ../sass/styles.scss */
+.session-anchors h3, .session-anchors h2, .session-anchors h3.label-field_unit_courses, .session-anchors h4,
+.material-anchors h3,
+.material-anchors h2,
+.material-anchors h3.label-field_unit_courses,
+.material-anchors h4,
+.section-anchors-wrapper h3,
+.section-anchors-wrapper h2,
+.section-anchors-wrapper h3.label-field_unit_courses,
+.section-anchors-wrapper h4 {
+  margin-bottom: 0;
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+/* line 673, ../sass/styles.scss */
+.session-anchors h2.jump-link, .session-anchors h3.jump-link.label-field_unit_courses,
+.material-anchors h2.jump-link,
+.material-anchors h3.jump-link.label-field_unit_courses,
+.section-anchors-wrapper h2.jump-link,
+.section-anchors-wrapper h3.jump-link.label-field_unit_courses {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 22px;
+  line-height: 1.375rem;
+}
+
+/* line 679, ../sass/styles.scss */
+#sessions .section-link-to-top,
+#materials .section-link-to-top {
+  clear: both;
+  float: right;
+}
+
+/* line 683, ../sass/styles.scss */
+.anchor-content-wrapper {
+  width: 100%;
+  clear: both;
+  float: left;
+}
+/* line 688, ../sass/styles.scss */
+.anchor-content-wrapper h3.content-anchor {
+  border-bottom: 1px solid #00274c;
+}
+
+/* line 695, ../sass/styles.scss */
+.section-anchor a {
+  background: url("../images/icon-circle-down.png") no-repeat 0 6px transparent;
+  display: block;
+  padding: 0 0.8em 0 1.4em;
+}
+
+/* line 703, ../sass/styles.scss */
+.overview-anchor,
+.section-link-to-top {
+  margin-bottom: 1.25em;
+  margin-top: 0;
+}
+/* line 706, ../sass/styles.scss */
+.overview-anchor a,
+.section-link-to-top a {
+  background: url("../images/icon-circle-up.png") no-repeat 0 3px transparent;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  line-height: 22px;
+  line-height: 1.375rem;
+  text-transform: uppercase;
+  color: #19699b;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  padding-left: 2em;
+  border-bottom: none;
+  display: block;
+}
+
+/* line 718, ../sass/styles.scss */
+.overview-anchor {
+  float: right;
+  margin-bottom: .25em;
+  width: 110px;
+}
+/* line 722, ../sass/styles.scss */
+.overview-anchor a {
+  background-position: left 2px;
+}
+
+/* line 727, ../sass/styles.scss */
+.session-anchors,
+.material-anchors {
+  margin-top: 1.5em;
+}
+
+/* line 731, ../sass/styles.scss */
+#course-tabs {
+  clear: left;
+  width: 100%;
+  float: left;
+  margin-top: 1.5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 738, ../sass/styles.scss */
+#course-tabs.ui-widget-content {
+  border: none;
+  color: black;
+}
+/* line 742, ../sass/styles.scss */
+#course-tabs.ui-corner-all {
+  border-radius: 0;
+}
+/* line 745, ../sass/styles.scss */
+#course-tabs.ui-widget {
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+/* line 748, ../sass/styles.scss */
+#course-tabs.ui-tabs .ui-tabs-panel {
+  padding: 1em 0.5em;
+}
+/* line 752, ../sass/styles.scss */
+#course-tabs .ui-corner-all {
+  border-radius: 1px;
+}
+/* line 756, ../sass/styles.scss */
+#course-tabs ul.ui-widget-header {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #19699b;
+}
+/* line 762, ../sass/styles.scss */
+#course-tabs.ui-tabs ul.ui-tabs-nav li a {
+  padding: 0.25em 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+/* line 767, ../sass/styles.scss */
+#course-tabs.ui-tabs ul.ui-tabs-nav li {
+  width: 100%;
+}
+/* line 772, ../sass/styles.scss */
+#course-tabs.ui-tabs ul.ui-tabs-nav .ui-state-default,
+#course-tabs.ui-tabs ul.ui-tabs-nav .ui-widget-content .ui-state-default,
+#course-tabs.ui-tabs ul.ui-tabs-nav .ui-widget-header .ui-state-default {
+  background: url("../images/ui-tabbg_glass.png") 50% 50% repeat-x #e8f0f5;
+}
+/* line 775, ../sass/styles.scss */
+#course-tabs.ui-tabs ul.ui-tabs-nav .ui-state-active, #course-tabs.ui-tabs ul.ui-tabs-nav .ui-widget-content .ui-state-active, #course-tabs.ui-tabs ul.ui-tabs-nav .ui-widget-header .ui-state-active {
+  background: white;
+  border: 1px solid #19699b;
+}
+/* line 785, ../sass/styles.scss */
+#course-tabs.ui-tabs ul.ui-tabs-nav li.ui-state-default:last-of-type.ui-state-active {
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid !important;
+}
+
+/* line 794, ../sass/styles.scss */
+.view-display-id-panel_pane_coursematerials .views-row {
+  clear: left;
+  width: 100%;
+  float: left;
+}
+
+/* line 803, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions, .view-course.view-display-id-panel_pane_coursematerials {
+  width: 100%;
+  clear: both;
+  float: left;
+}
+/* line 808, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions table.views-table, .view-course.view-display-id-panel_pane_coursematerials table.views-table {
+  display: table;
+  width: 100%;
+  margin: 0 0 0.5em;
+}
+/* line 813, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions caption, .view-course.view-display-id-panel_pane_coursematerials caption {
+  position: relative;
+  display: table-caption;
+  text-align: left;
+  background-color: #e8f0f5;
+  border-bottom: 1px solid #00274c;
+  margin-bottom: 0.5em;
+}
+/* line 821, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions caption h3.field-name-field-session-tag,
+.view-course.view-display-id-panel_pane_coursesessions caption h3.field-name-field-material-tag, .view-course.view-display-id-panel_pane_coursematerials caption h3.field-name-field-session-tag,
+.view-course.view-display-id-panel_pane_coursematerials caption h3.field-name-field-material-tag {
+  margin: 0;
+  padding: 4px 1em;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+/* line 826, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions caption .overview-anchor, .view-course.view-display-id-panel_pane_coursematerials caption .overview-anchor {
+  position: absolute;
+  margin-top: 0.25em;
+  margin-bottom: 0;
+  right: 0.25em;
+  width: 130px;
+}
+/* line 834, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions thead, .view-course.view-display-id-panel_pane_coursematerials thead {
+  display: none;
+}
+/* line 837, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions th, .view-course.view-display-id-panel_pane_coursematerials th {
+  font-weight: normal;
+  padding: 0 0.5em;
+}
+/* line 841, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions tr, .view-course.view-display-id-panel_pane_coursematerials tr {
+  display: block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+/* line 846, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions tr.odd, .view-course.view-display-id-panel_pane_coursematerials tr.odd {
+  background-color: transparent;
+}
+/* line 850, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions tbody, .view-course.view-display-id-panel_pane_coursematerials tbody {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 22px;
+  line-height: 1.375rem;
+}
+/* line 853, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td, .view-course.view-display-id-panel_pane_coursematerials td {
+  display: block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 858, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-title-attribs, .view-course.view-display-id-panel_pane_coursematerials td.course-title-attribs {
+  margin-top: 0.5em;
+}
+/* line 860, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-title-attribs p, .view-course.view-display-id-panel_pane_coursematerials td.course-title-attribs p {
+  margin: 0 0 0.75em;
+}
+/* line 864, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-creator, .view-course.view-display-id-panel_pane_coursematerials td.course-creator {
+  display: inline-block;
+}
+/* line 866, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-creator .field-name-field-document-creator, .view-course.view-display-id-panel_pane_coursematerials td.course-creator .field-name-field-document-creator {
+  float: left;
+  padding-right: 0.25em;
+  margin-bottom: 0.5em;
+  line-height: 22px;
+}
+/* line 871, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-creator .field-name-field-document-creator:after, .view-course.view-display-id-panel_pane_coursematerials td.course-creator .field-name-field-document-creator:after {
+  content: ", ";
+  position: relative;
+  left: -2px;
+}
+/* line 878, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-creator div:last-child:after, .view-course.view-display-id-panel_pane_coursematerials td.course-creator div:last-child:after {
+  content: "";
+}
+/* line 884, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-files-links, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links {
+  clear: both;
+}
+/* line 887, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-files-links .paragraphs-item-downloads-links .content .field-item, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links .paragraphs-item-downloads-links .content .field-item {
+  float: left;
+  padding: 0.1em 0.5em 0.5em 0;
+  font-size: 24px;
+}
+/* line 893, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa {
+  font-size: 24px;
+}
+/* line 895, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa:hover, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa:hover {
+  color: #19699b;
+  text-decoration: none;
+}
+/* line 901, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa.fa-archive, .view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa.fa-square, .view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa.fa-square-o, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa.fa-archive, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa.fa-square, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa.fa-square-o {
+  font-size: 26px;
+  color: #4071b4;
+}
+/* line 905, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa.fa-archive:hover, .view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa.fa-square:hover, .view-course.view-display-id-panel_pane_coursesessions td.course-files-links a.fa.fa-square-o:hover, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa.fa-archive:hover, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa.fa-square:hover, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links a.fa.fa-square-o:hover {
+  color: #6db4e7;
+}
+/* line 913, ../sass/styles.scss */
+.view-course.view-display-id-panel_pane_coursesessions td.course-license, .view-course.view-display-id-panel_pane_coursematerials td.course-license {
+  float: left;
+}
+
+/* don't even get me started on this one ... */
+/* line 928, ../sass/styles.scss */
+.page-node-7 .field-name-field-text .imagebox-wrapper_small.float-left, .page-node-7 .field-name-field-text .imagebox-wrapper_small.float-right,
+.page-node-69 .field-name-field-text .imagebox-wrapper_small.float-left,
+.page-node-69 .field-name-field-text .imagebox-wrapper_small.float-right {
+  width: 30%;
+  float: none;
+}
+
+@media screen and (min-width: 480px) {
+  /* don't even get me started on this one ... */
+  /* line 942, ../sass/styles.scss */
+  .page-node-7 .field-name-field-text .imagebox-wrapper_small,
+  .page-node-69 .field-name-field-text .imagebox-wrapper_small {
+    width: auto;
+  }
+  /* line 944, ../sass/styles.scss */
+  .page-node-7 .field-name-field-text .imagebox-wrapper_small.float-right,
+  .page-node-69 .field-name-field-text .imagebox-wrapper_small.float-right {
+    float: right;
+  }
+  /* line 947, ../sass/styles.scss */
+  .page-node-7 .field-name-field-text .imagebox-wrapper_small.float-left,
+  .page-node-69 .field-name-field-text .imagebox-wrapper_small.float-left {
+    float: left;
+  }
+
+  /* line 955, ../sass/styles.scss */
+  .paragraphs-items-field-text-link-block .field-name-field-link a {
+    font-size: 16px;
+  }
+
+  /* line 961, ../sass/styles.scss */
+  #footer .cc-logo {
+    float: left;
+    margin: 0 1.5em 0 0;
+  }
+}
+@media screen and (min-width: 580px) {
+  /* line 973, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid {
+    width: 100%;
+    text-align: center;
+  }
+  /* line 976, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid .views-row {
+    display: inline-block;
+  }
+  /* line 979, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid .views-column {
+    width: 200px;
+    display: table-cell;
+    padding: 0 1em;
+    text-align: left;
+    margin-bottom: 1.5em;
+  }
+  /* line 988, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-description,
+  #block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-text {
+    display: block;
+    padding: 8px 12px;
+  }
+  /* line 992, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-text {
+    color: white;
+    min-height: 275px;
+  }
+  /* line 995, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-text.find {
+    background-color: #575294;
+  }
+  /* line 998, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-text.share {
+    background-color: #ac5600;
+  }
+  /* line 1001, ../sass/styles.scss */
+  #block-views-front-links-block-frontlinks .views-responsive-grid .field-name-field-link-text.connect {
+    background-color: #655a52;
+  }
+
+  /* line 1011, ../sass/styles.scss */
+  .node-type-openmich-blog .blog-image-wrapper,
+  .view-open-mich-blog .blog-image-wrapper,
+  .node-type-unit-landing-page .course-image-wrapper,
+  .node-type-course .course-image-wrapper {
+    display: block;
+    float: right;
+    width: 40%;
+    margin-left: 2%;
+  }
+  /* line 1018, ../sass/styles.scss */
+  .node-type-openmich-blog .blog-image-wrapper .field-name-field-blog-image img,
+  .node-type-openmich-blog .blog-image-wrapper .field-name-field-course-image img,
+  .view-open-mich-blog .blog-image-wrapper .field-name-field-blog-image img,
+  .view-open-mich-blog .blog-image-wrapper .field-name-field-course-image img,
+  .node-type-unit-landing-page .course-image-wrapper .field-name-field-blog-image img,
+  .node-type-unit-landing-page .course-image-wrapper .field-name-field-course-image img,
+  .node-type-course .course-image-wrapper .field-name-field-blog-image img,
+  .node-type-course .course-image-wrapper .field-name-field-course-image img {
+    width: 100%;
+  }
+  /* line 1023, ../sass/styles.scss */
+  .node-type-openmich-blog .blog-image-wrapper .field-name-field-blog-image-caption,
+  .node-type-openmich-blog .blog-image-wrapper .field-name-field-course-image-caption,
+  .view-open-mich-blog .blog-image-wrapper .field-name-field-blog-image-caption,
+  .view-open-mich-blog .blog-image-wrapper .field-name-field-course-image-caption,
+  .node-type-unit-landing-page .course-image-wrapper .field-name-field-blog-image-caption,
+  .node-type-unit-landing-page .course-image-wrapper .field-name-field-course-image-caption,
+  .node-type-course .course-image-wrapper .field-name-field-blog-image-caption,
+  .node-type-course .course-image-wrapper .field-name-field-course-image-caption {
+    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 16px;
+    line-height: 1rem;
+  }
+  /* line 1026, ../sass/styles.scss */
+  .node-type-openmich-blog .blog-image-wrapper .field-name-field-blog-image-caption p,
+  .node-type-openmich-blog .blog-image-wrapper .field-name-field-course-image-caption p,
+  .view-open-mich-blog .blog-image-wrapper .field-name-field-blog-image-caption p,
+  .view-open-mich-blog .blog-image-wrapper .field-name-field-course-image-caption p,
+  .node-type-unit-landing-page .course-image-wrapper .field-name-field-blog-image-caption p,
+  .node-type-unit-landing-page .course-image-wrapper .field-name-field-course-image-caption p,
+  .node-type-course .course-image-wrapper .field-name-field-blog-image-caption p,
+  .node-type-course .course-image-wrapper .field-name-field-course-image-caption p {
+    margin: 0;
+  }
+
+  /* line 1030, ../sass/styles.scss */
+  #course-tabs.ui-tabs .ui-tabs-panel {
+    padding: 1em 1.4em;
+  }
+  /* line 1033, ../sass/styles.scss */
+  #course-tabs ul.ui-widget-header {
+    border-bottom: 1px solid #19699b;
+  }
+  /* line 1038, ../sass/styles.scss */
+  #course-tabs.ui-tabs ul.ui-tabs-nav li {
+    width: auto;
+  }
+  /* line 1043, ../sass/styles.scss */
+  #course-tabs.ui-tabs ul.ui-tabs-nav .ui-state-active,
+  #course-tabs.ui-tabs ul.ui-tabs-nav .ui-widget-content .ui-state-active,
+  #course-tabs.ui-tabs ul.ui-tabs-nav .ui-widget-header .ui-state-active {
+    border: 1px solid #19699b;
+  }
+  /* line 1047, ../sass/styles.scss */
+  #course-tabs.ui-tabs ul.ui-tabs-nav li.ui-state-default:last-of-type.ui-state-active {
+    border-bottom-style: none !important;
+  }
+
+  /* line 1058, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions caption .overview-anchor, .view-course.view-display-id-panel_pane_coursematerials caption .overview-anchor {
+    top: 5px;
+    margin-top: 0;
+  }
+  /* line 1062, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions thead, .view-course.view-display-id-panel_pane_coursematerials thead {
+    display: table-header-group;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 24px;
+    line-height: 1.5rem;
+    text-align: left;
+    background-color: #ececec;
+  }
+  /* line 1068, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions tr, .view-course.view-display-id-panel_pane_coursematerials tr {
+    display: table-row;
+    float: none;
+  }
+  /* line 1072, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td, .view-course.view-display-id-panel_pane_coursematerials td {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
+  /* line 1076, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td.course-title-attribs, .view-course.view-display-id-panel_pane_coursematerials td.course-title-attribs {
+    width: 47%;
+    padding: 0.25em 0.5em;
+    margin-top: 0;
+  }
+  /* line 1081, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td.course-creator, .view-course.view-display-id-panel_pane_coursematerials td.course-creator {
+    width: 25%;
+    padding: 0.25em 0.5em;
+    display: table-cell;
+  }
+  /* line 1085, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td.course-creator .field-name-field-document-creator, .view-course.view-display-id-panel_pane_coursematerials td.course-creator .field-name-field-document-creator {
+    float: none;
+    padding-right: 0;
+  }
+  /* line 1088, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td.course-creator .field-name-field-document-creator:after, .view-course.view-display-id-panel_pane_coursematerials td.course-creator .field-name-field-document-creator:after {
+    content: "";
+  }
+  /* line 1092, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td.course-files-links, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links {
+    width: 18%;
+    padding-top: 0.25em;
+    padding-bottom: 0;
+  }
+  /* line 1097, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td.course-files-links .paragraphs-item-downloads-links .content .field-item, .view-course.view-display-id-panel_pane_coursematerials td.course-files-links .paragraphs-item-downloads-links .content .field-item {
+    padding: 0.1em 0.5em 0.5em 0;
+  }
+  /* line 1102, ../sass/styles.scss */
+  .view-course.view-display-id-panel_pane_coursesessions td.course-license, .view-course.view-display-id-panel_pane_coursematerials td.course-license {
+    padding-top: 0.45em;
+    padding-left: 0.5em;
+  }
+
+  /* line 1112, ../sass/styles.scss */
+  .paragraphs-items-field-text-link-block .field-name-field-link a {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape), screen and (min-width: 800px) {
+  /* line 1123, ../sass/styles.scss */
+  #main {
+    padding-top: 2em;
+  }
+
+  /* line 1126, ../sass/styles.scss */
+  .header-inner-wrapper {
+    padding-bottom: 1.5em;
+  }
+
+  /* line 1129, ../sass/styles.scss */
+  .front #content {
+    margin-top: 0;
+  }
+
+  /* line 1132, ../sass/styles.scss */
+  #content {
+    border-left: 1px solid #19699b;
+  }
+
+  /* line 1135, ../sass/styles.scss */
+  .region-sidebar-first {
+    border-right: 1px solid #19699b;
+    position: relative;
+    right: -1px;
+  }
+
+  /* line 1143, ../sass/styles.scss */
+  .no-sidebars #content,
+  .no-sidebars .region-sidebar-first,
+  .front #content,
+  .front .region-sidebar-first {
+    border: none;
+  }
+
+  /* line 1148, ../sass/styles.scss */
+  #block-panels-mini-header-navigation-and-search {
+    clear: none;
+    padding: 0;
+    top: 1.5em;
+    right: 10px;
+  }
+  /* line 1155, ../sass/styles.scss */
+  #block-panels-mini-header-navigation-and-search .pane-menu-block-mobile-header-navigation {
+    display: none;
+  }
+  /* line 1158, ../sass/styles.scss */
+  #block-panels-mini-header-navigation-and-search .pane-search-form {
+    display: none;
+  }
+
+  /* line 1161, ../sass/styles.scss */
+  #block-search-form {
+    display: block;
+    float: right;
+  }
+  /* line 1164, ../sass/styles.scss */
+  #block-search-form .form-text {
+    width: 180px;
+    height: 30px;
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 14px;
+    line-height: 0.875rem;
+    padding: 4px 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    background-color: white;
+    float: left;
+    margin-right: 15px;
+    border-radius: 8px;
+  }
+  /* line 1176, ../sass/styles.scss */
+  #block-search-form .form-submit {
+    background: none;
+    position: relative;
+    height: 28px;
+    width: 28px;
+    top: 2px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  /* line 1190, ../sass/styles.scss */
+  #block-menu-block-sidebar-menu {
+    display: block;
+  }
+  /* line 1192, ../sass/styles.scss */
+  #block-menu-block-sidebar-menu h2.block-title, #block-menu-block-sidebar-menu h3.block-title.label-field_unit_courses {
+    border-bottom: 2px solid #19699b;
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 28px;
+    line-height: 1.75rem;
+    font-weight: normal;
+  }
+
+  /* line 1201, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu {
+    padding: 0;
+    margin: 0;
+  }
+  /* line 1204, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu h2.block-title, .menu-block-sidebar_menu ul.menu h3.block-title.label-field_unit_courses {
+    border-bottom: 2px solid #19699b;
+  }
+  /* line 1206, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu h2.block-title a:hover, .menu-block-sidebar_menu ul.menu h3.block-title.label-field_unit_courses a:hover {
+    text-decoration: none;
+  }
+  /* line 1208, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li {
+    border-bottom: none;
+  }
+  /* line 1210, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li .last {
+    border-bottom: none;
+  }
+  /* line 1213, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li a {
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 22px;
+    line-height: 1.375rem;
+    font-weight: 600;
+    color: #19699b;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-right: 0.5em;
+    display: block;
+  }
+  /* line 1222, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li a.active {
+    color: #00274c;
+    background: #e8f0f5;
+  }
+  /* line 1226, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li a:hover {
+    color: #00274c;
+    background-color: #e8f0f5;
+    text-decoration: none;
+  }
+  /* line 1231, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li a.menu-external-link {
+    background: url("../images/external-link.png") no-repeat scroll 95% 50% transparent;
+    padding-right: 28px;
+  }
+  /* line 1234, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li a.menu-external-link:hover {
+    background: url("../images/external-link.png") no-repeat scroll 95% 50% #e8f0f5;
+  }
+  /* line 1238, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li a.menu-internal-link {
+    background: url("../images/internal-key.png") no-repeat scroll 95% 50% #e8f0f5;
+    padding-right: 28px;
+  }
+  /* line 1245, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li > ul.menu li {
+    border-top: none;
+  }
+  /* line 1246, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li a {
+    padding-left: 1em;
+  }
+  /* line 1247, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li ul li a {
+    padding-left: 2em;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 26px;
+    line-height: 1.625rem;
+    font-weight: normal;
+  }
+  /* line 1248, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li ul li ul li a {
+    padding-left: 3em;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 24px;
+    line-height: 1.5rem;
+  }
+  /* line 1249, ../sass/styles.scss */
+  .menu-block-sidebar_menu ul.menu li ul li ul li ul li a {
+    padding-left: 4em;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 24px;
+    line-height: 1.5rem;
+  }
+
+  /* line 1253, ../sass/styles.scss */
+  .social-wrapper {
+    float: right;
+    margin-right: 1.5em;
+  }
+
+  /* line 1258, ../sass/styles.scss */
+  .top-navbar-wrapper {
+    background-color: #00274c;
+    display: block;
+  }
+  /* line 1261, ../sass/styles.scss */
+  .top-navbar-wrapper ul.menu {
+    margin: 0;
+    padding: 0;
+  }
+  /* line 1265, ../sass/styles.scss */
+  .top-navbar-wrapper ul.menu li {
+    float: left;
+  }
+  /* line 1267, ../sass/styles.scss */
+  .top-navbar-wrapper ul.menu li a {
+    display: block;
+    color: white;
+    background-color: #00274c;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 24px;
+    line-height: 1.5rem;
+    padding: 8px 2em;
+  }
+  /* line 1274, ../sass/styles.scss */
+  .top-navbar-wrapper ul.menu li a:focus, .top-navbar-wrapper ul.menu li a:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #19699b;
+  }
+  /* line 1280, ../sass/styles.scss */
+  .top-navbar-wrapper ul.menu li a.active-trail, .top-navbar-wrapper ul.menu li a.active {
+    color: white;
+    background-color: #19699b;
+  }
+
+  /* line 1288, ../sass/styles.scss */
+  #block-views-promos-block-promoblock {
+    border-top: none;
+    padding-top: 0;
+  }
+}

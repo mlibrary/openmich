@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Custom Mini Panels SearchMenu feature.
+ */
+
+include_once 'custom_mini_panels_searchmenu.features.inc';

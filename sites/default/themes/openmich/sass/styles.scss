@@ -1,0 +1,1296 @@
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+ *
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
+
+/* Import Sass mixins, variables, Compass modules, etc. */
+@import "init";
+
+/* HTML element (SMACSS base) rules */
+@import "normalize";
+
+/* Layout rules */
+@import "layouts/responsive";
+
+/* Component (SMACSS module) rules */
+@import "components/misc";
+
+
+// Optionally, add your own components here.
+@import "print";
+
+/* SMACSS theme rules */
+/* @import "theme-A"; */
+/* @import "theme-B"; */
+
+
+#footer ul li,
+.menu__item.is-collapsed, .menu__item.is-expanded, .menu__item.is-leaf {
+  list-style: none;
+  list-style-image: none;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &.active {
+    color: $link;
+  }
+}
+p {
+  margin: .75em 0;
+}
+
+ol, ul {
+  margin: 0.5em 0 1em;
+  li {
+  	margin-bottom: 0.5em;
+  }
+}
+
+ul.menu li {
+	margin-bottom: 0;
+}
+#content .breadcrumb {
+	@include font-rem(15px, 20px);
+	margin-bottom: 1em;
+}
+
+.block {
+  margin-bottom: 0;
+}
+
+#logo {
+	img {
+		width: 100%;
+	}
+}
+span.field-label.label-field_blog_author {
+	padding-right: 0.15em;
+}
+
+#main {
+	padding-top: 1em;
+}
+
+.front #content {
+	margin-top: 1em;
+}
+
+#block-panels-mini-header-navigation-and-search,
+.menu-block-sidebar_menu,
+#block-menu-block-1 {
+	font-family: $stack_franklin_compressed;
+}
+
+
+.header-wrapper {
+	background: url("../images/openmibannerbckgrd.jpg") no-repeat top left transparent;
+	background-size: cover;
+}
+
+//
+// Navigation and Search panel pane
+//
+
+#block-menu-block-sidebar-menu,
+#block-search-form {display: none;}
+
+#block-panels-mini-header-navigation-and-search {
+  clear: both;
+  padding: 5px 0 8px;
+  position: relative;
+   width: 100%;
+  @include box-sizing(border-box);
+
+  // Theme the mobile drop down navigation
+  .pane-menu-block-mobile-header-navigation {
+    display: table-cell;
+    background-color: $mobile_nav_bg;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    h2.pane-title {
+      padding: 0 8px 0 12px;
+      margin: 0;
+      cursor: pointer;
+      height: 36px;
+      font-size: 1.2em;
+		line-height:1.5em;
+      @include box-sizing(border-box);
+      color: $mobile_h2;
+      background-color: $mobile_h2_bg;
+      font-weight: normal;
+      border-bottom: $mobile_h2_border;
+    }
+    ul.menu {
+      display: none;
+      margin: 0;
+      padding: 0;
+      width: 200%;
+      
+      li {
+        @include font-rem(18px, 52px);
+        list-style-type: none;
+        margin: 0;
+        
+        a {
+          text-decoration: none;
+          border-bottom: $mobile_border;
+          display: block;
+          width: auto;
+          color: $mobile_text;
+          line-height: 1em;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          background-color: $mobile_menu_bg;
+          &:hover {
+            text-decoration: none;
+            color: $mobile_hover_text;
+            background-color: $mobile_hover_bg;
+          }
+          &.active {
+            color: $mobile_active_text;
+            background-color: $mobile_active_bg;
+          }
+        }
+        a.menu-external-link {
+          background: url("../images/external-link.png") no-repeat scroll 95% 50% transparent;
+          &:hover {
+          	background: url("../images/external-link.png") no-repeat scroll 95% 50%;
+          }
+        }
+        a.menu-internal-link {
+          background: url("../images/internal-key.png") no-repeat scroll 95% 50% transparent;
+        }
+        
+      }
+    }
+
+    ul.menu ul.menu {
+      width: 100%;
+      border-top: none;
+      li {border-left: none; border-right: none;}
+      li.last { border-bottom: none;}
+    }
+    ul.menu ul.menu ul.menu {border-top: none;}
+    ul.menu ul.menu ul.menu ul.menu {border-top: none;}
+    ul li a {padding-left: 1em;}
+    ul li ul li a {padding-left: 2em; }
+    ul li ul li ul li a {padding-left: 3em; }
+    ul li ul li ul li ul li a {padding-left: 4em; }
+  }
+
+  // Theme the search form
+  .pane-search-form {
+    @include clearfix;
+    @include box-sizing(border-box);
+    display: table-cell;
+    position: relative;
+    float: left;
+    width: 50%;
+    z-index: 10;
+
+    .views-exposed-widgets {
+      margin: 0;
+    }
+
+    .views-exposed-form .views-exposed-widget {
+      float: none;
+      padding: 0;
+    }
+
+    .form-type-textfield {
+      position: relative;
+    }
+
+    label {
+      @include element-invisible();
+    }
+
+    .form-text {
+      @include box-sizing(border-box);
+      position: relative;
+      float: left;
+      color: $search-text;
+      width: 100%;
+      padding: 6px 38px 6px 8px;
+      height: 35px;
+      background-color: $mobile_search_bg;
+      border-radius: 0;
+      border: 1px solid transparent;
+    }
+
+    .form-submit {
+      // Remove some of the css from the standard submit button
+      background: none;
+      position: absolute;
+      height: 36px;
+      width: 36px;
+      top:0px;
+      right: -5px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+// Footer Styles
+#footer {
+	clear: both;
+	border-top: $footer-border;
+	padding-top: 2em;
+	margin-top: 2em;
+	margin-bottom: 5em;
+	
+	.footer-block-wrapper {
+		@include font-rem(12px, 18px);
+		a {
+			text-decoration: underline;
+		}
+	}
+	.footer-logo  {
+		float: left;
+		&.logo-library {
+			width: 90px;
+			margin-right: 2em;
+		}
+		&.logo-hits {
+			width: 112px;
+		}
+	}
+	.cc-logo {
+		width: 125px;
+		margin:0 auto 1em;
+	}
+	.footer-logo-text {
+		clear: both;
+	}
+
+	.footer-logo-wrapper {
+		width: 100%;
+		float: left;
+		margin-bottom: 2em;
+	}
+	.cc-wrapper {
+		width: 100%;
+		clear: both;
+	}
+	.footer-logos {
+		width: 230px;
+		margin: 0 auto;
+	}
+}
+
+.top-bar-wrapper {
+	width: 100%;
+	float: left;
+	padding-top: 1.5em;
+}
+.header-inner-wrapper {
+	clear: both;
+	width: 100%;
+	padding-top: 1em;
+}
+.social-wrapper {
+	float: right;
+	.social-item {
+		float: left;
+		background-color: $social-off;
+		height: 25px;
+		width: 28px;
+		text-align: center;
+		padding: 1px;
+		margin-right: 8px;
+		font-size: 20px;
+		border-radius: 6px;
+		&.email {
+			a:focus,
+			&:hover {
+				background-color: $email-on;
+			}
+		}
+
+		&.rss {
+			a:focus,
+			&:hover {
+				background-color: $rss-on;
+			}
+		}
+		&.facebook{
+			a:focus,
+			&:hover {
+				background-color: $facebook-on;
+			}
+		}
+		&.twitter {
+			a:focus,
+			&:hover {
+				background-color: $twitter-on;
+			}
+		}
+		&.youtube {
+			a:focus,
+			&:hover {
+				background-color: $youtube-on;
+			}
+		}
+		&.slideshare {
+			a:focus,
+			&:hover {
+				background-color: $slideshare-on;
+			}
+		}		
+		a {
+			display: block;
+			line-height: 28px;
+			color: $social-color;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+.paragraphs-items-field-text-link-block {
+	.field-name-field-link {
+		text-align: right;
+		a {
+			background-color: $link-btn-bg;
+			color: $link-btn;
+			padding: 6px 12px;
+			font-size: 13px;
+			&:before {
+				content: ">> "
+			}
+		}
+	}
+	.paragraphs-item-paragraph-text {
+//		border-top: $pblock-border;
+//		margin-top: 2em;
+		margin-top: 1em;
+	}
+}
+
+#block-views-promos-block-promoblock {
+	margin-top: 2em;
+	border-top: $pblock-border;
+	padding-top: 1em;
+}
+
+.top-navbar-wrapper {
+	display: none;
+}
+
+#block-views-front-links-block-frontlinks {
+	clear: both;
+	@include box-sizing(border-box);
+	margin-top: 2em;
+	@include font-rem(16px,24px);
+	.views-responsive-grid {
+		width: 100%;
+		@include box-sizing(border-box);
+		.views-column {
+			width: 100%;
+			margin-bottom: 0.5em;
+		}
+		.field-name-field-link-image {
+			img { width: 100%;}
+		}
+		.field-name-field-link-description,
+		.field-name-field-link-text {
+			display: none;
+		}
+	}
+}
+
+.node-type-openmich-blog,
+.view-open-mich-blog {
+	.blog-image-wrapper {
+		display: none;
+	}
+}
+
+.node-type-unit-landing-page,
+.node-type-course {
+	.course-image-wrapper {
+		display: none;
+	}
+}
+
+.node-type-course {
+	.label-field_course_term_date,
+	.label-field_course_published_date,
+	.label-field_course_revised_date {
+		clear: left;
+		float: left;
+		font-weight: 600;
+	}
+	.field-name-field-course-term-date,
+	.field-name-field-course-published-date,
+	.field-name-field-course-revised-date {
+		display: block;
+	}
+}
+
+.paragraphs-items-field-downloads-access {
+	clear: both;
+}
+
+.field-name-field-document-license-tags {
+//	width: 22px;
+//	height: 22px;
+	display: inline-block;
+	.field-name-field-license-image {
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+	}
+	.link-wrapper a {
+		&:hover {text-decoration: none;}
+	}
+}
+
+
+.course-content-wrapper.sessions,
+.course-content-wrapper.materials,
+.paragraphs-items-field-course-overview {
+	clear: left;
+	width: 100%;
+	float: left;
+	margin-top: 1.5em;
+}
+
+
+#course-accordion {
+	font-family: $font-body;
+	color: $accordion-text;
+	p {margin: 0 0 0.75em;}
+	@include font-rem(17px, 22px);
+
+	.ui-corner-top,
+	.ui-corner-bottom,
+	.ui-corner-all {
+		border-radius:0;
+	}
+
+	.ui-state-active,
+	.ui-widget-content .ui-state-active,
+	.ui-widget-header .ui-state-active,
+	.ui-state-default,
+	.ui-widget-content,
+	.ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default {
+		border: none;
+		color: $accordion-text;
+		background: none;
+		border-radius:0;
+	}
+
+	.ui-accordion-header {
+		border-top: $accordion-border;
+		@include font-rem(20px, 24px);
+		color: $accordion-header;
+		padding: 0.25em 2em;
+		&:hover {
+			color: $accordion-hdr-hover;
+		}
+	}
+	h3.ui-accordion-header:last-of-type {
+		border-bottom: $accordion-border;
+		&.ui-state-active {
+			border-bottom: none;
+		}
+		.ui-accordion-content-active {
+			border-bottom: $accordion-border;
+		}
+	}
+	.content.ui-accordion-content {
+		border-top: $accordion-dot-border;
+		padding-top: 0.5em;
+	}
+
+	a.fa {
+		font-size: 30px;
+	}
+
+	.creator-bio-wrapper {
+		.field-name-field-creator-image {
+			width: 18%;
+			margin-right: 2%;
+			float: left;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.paragraphs-items-field-creator-bios {
+	clear: both;
+	width: 100%;
+	float: left;
+	.paragraphs-item-creator {
+		clear: both;
+		width: 100%;
+		float: left;
+		margin-bottom: 1.5em;
+	}
+	.field-name-field-creator-image {
+		width: 18%;
+		margin-right: 2%;
+		float: left;
+		img { width: 100%; }
+	}
+	.field-name-field-creator-text {
+		ul, ol {
+			display: inline-block;
+			margin-left: 2em;
+		}
+	}
+}
+
+a {
+	&.fa {
+	 	font-size: 20px;
+ 	}
+}
+ h3.label-field_unit_courses {
+	 @extend h2;
+ }
+ .field-name-field-unit-courses {
+	 h2.node-title {
+		 @include font-rem(16px, 22px);
+		 font-family: $font-body;
+		 font-weight: normal;
+		 &:before {
+			 content: ">";
+			 padding-right: .75em;
+		 }
+	 }
+ }
+
+ .field-name-field-unit-website {
+	 text-align: right;
+	 &:before {
+		 content: ">>";
+		 padding-right: 0.5em;
+	 }
+ }
+
+ .node-type-unit-landing-page {
+	 .unit-view-link {
+		 text-align: right;
+		 &:before {
+			 content: ">>";
+			 padding-right: 0.5em;
+		 }
+	 }
+	 .view-mode-unit_summary {
+
+	 }
+
+	 .field-name-field-unit-details {
+		 width: 95%;
+		 margin-left: auto;
+		 margin-right: auto;
+		 @include box-sizing(border-box);
+		 border-top: $main-border;
+		 margin-top: 1em;
+		 padding-top: 0.5em;
+
+		 .field-item {
+			 padding: 0.5em;
+			 margin-bottom: 0.5em;
+			 &.even {
+				 background-color: $unit-details-ref-bg;
+			 }
+			 &.first {
+				 margin-top: 1em;
+			 }
+		 }
+	 }
+ }
+ .view-open-mich-blog {
+	 .blog-author-label{
+		 float:left;
+		 padding-right: 6px;
+	 }
+	 .field-name-field-blog-text {
+		 clear: left;
+	 }
+	 .field-name-field-blog-date,
+	 .blog-author {
+		 @include font-rem(15px, 18px);
+	 }
+	 .views-row {
+		 border-bottom: $blog-views-border;
+		 padding-bottom: 0.5em;
+		 margin-bottom: 0.5em;
+	 }
+ }
+
+ #block-panels-mini-open-michigan-blog-archive {
+	 @include box-sizing(border-box);
+	 margin-top: 1.5em;
+	 -webkit-border-radius:3px;
+	 -moz-border-radius:3px;
+	 border-radius:3px;
+	 h2.pane-title {
+		 @include font-rem(18px, 24px);
+		 font-family: $font-body;
+		 color: $blog-block-header;
+		 background-color: $blog-block-header-bg;
+		 margin:0;
+		 padding: 0 0.5em;
+		 font-weight: normal;
+
+	 }
+	 border: $blog-block-border;
+	 .view-open-mich-blog {
+		 @include font-rem(15px, 18px);
+		 padding: 0 0.5em;
+
+		 .views-summary {
+			 padding: 0.25em 0;
+		 }
+	 }
+ }
+
+.session-anchors,
+.material-anchors,
+.section-anchors-wrapper {
+	padding-top: 12px;
+	h3, h2, h4 {
+		margin-bottom: 0;
+		font-family: $font-body;
+	}
+	h2.jump-link {
+		@include font-rem(16px, 22px);
+	}
+
+}
+#sessions .section-link-to-top,
+#materials .section-link-to-top {
+	clear: both;
+	float: right;
+}
+.anchor-content-wrapper {
+	width: 100%;
+	clear: both;
+	float: left;
+
+	h3.content-anchor {
+		border-bottom:$anchor-border;
+	}
+
+}
+
+.section-anchor {
+	a {
+		background: url("../images/icon-circle-down.png") no-repeat 0 6px transparent;
+		display: block;
+		padding: 0 0.8em 0 1.4em;
+	}
+}
+
+.overview-anchor,
+.section-link-to-top {
+	margin-bottom: 1.25em;
+	margin-top: 0;
+	a {
+		background: url("../images/icon-circle-up.png") no-repeat 0 3px transparent;
+		@include font-rem(11px,22px);
+		text-transform: uppercase;
+		color: $anchor-btt;
+		letter-spacing: 0.1em;
+		font-weight: 700;
+		padding-left: 2em;
+		border-bottom: none;
+		display: block;
+	}
+}
+.overview-anchor {
+	float: right;
+	margin-bottom: .25em;
+	width: 110px;
+	a {
+		background-position: left 2px;
+	}
+}
+.session-anchors,
+.material-anchors {
+	margin-top: 1.5em;
+}
+
+#course-tabs {
+	clear: left;
+	width: 100%;
+	float: left;
+	margin-top: 1.5em;
+	@include box-sizing(border-box);
+
+	&.ui-widget-content {
+		border: none;
+		color: $text-font;
+	}
+	&.ui-corner-all {
+		border-radius: 0;
+	}
+	&.ui-widget {
+		font-family: $font-body;
+	}
+	&.ui-tabs .ui-tabs-panel {
+		padding: 1em .5em
+	}
+
+	.ui-corner-all {
+		border-radius: 1px;
+	}
+
+	ul.ui-widget-header {
+		background: none;
+		border: none;
+		border-bottom: $tab-border;
+	}
+	&.ui-tabs ul.ui-tabs-nav {
+		li a {
+			padding: 0.25em 1em;
+			@include box-sizing(border-box);
+			width: 100%;
+		}
+		li {
+			width: 100%;
+		}
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default {
+			background: url("../images/ui-tabbg_glass.png") 50% 50% repeat-x $tab-bg;
+		}
+		.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+			background: $tab-bg-active;
+			border: $tab-border;
+		}
+		.ui-state-active,
+		.ui-widget-content .ui-state-active,
+		.ui-widget-header .ui-state-active {
+			//			border: none;
+		}
+		li.ui-state-default:last-of-type {
+			&.ui-state-active {
+				border-bottom-width: 1px !important;
+				border-bottom-style: solid !important;
+			}
+		}
+	}
+}
+
+.view-display-id-panel_pane_coursematerials {
+	.views-row {
+		clear: left;
+		width: 100%;
+		float: left;
+	}
+}
+
+.view-course {
+	&.view-display-id-panel_pane_coursesessions,
+	&.view-display-id-panel_pane_coursematerials {
+		width: 100%;
+		clear: both;
+		float: left;
+
+		table.views-table {
+			display: table;
+			width: 100%;
+			margin: 0 0 0.5em;
+		}
+		caption {
+			position: relative;
+			display: table-caption;
+			text-align: left;
+			background-color: $course-table-bg;
+			border-bottom: $course-anchor-border;
+			margin-bottom: 0.5em;
+			h3.field-name-field-session-tag,
+			h3.field-name-field-material-tag {
+				margin: 0;
+				padding: 4px 1em;
+				@include font-rem(20px, 24px);
+			}
+			.overview-anchor {
+				position: absolute;
+				margin-top: 0.25em;
+				margin-bottom:0;
+				right: 0.25em;
+				width: 130px;
+			}
+		}
+		thead {
+			display: none;
+		}
+		th {
+			font-weight:normal;
+			padding: 0 0.5em;
+		}
+		tr {
+			display: block;
+			width: 100%;
+			@include box-sizing(border-box);
+			float: left;
+			&.odd {
+				background-color: transparent;
+			}
+		}
+		tbody {
+			@include font-rem(16px, 22px);
+		}
+		td {
+			display: block;
+			width: 100%;
+			@include box-sizing(border-box);
+
+			&.course-title-attribs {
+				margin-top: 0.5em;
+				p {
+					margin: 0 0 0.75em;
+				}
+			}
+			&.course-creator{
+				display: inline-block;
+				.field-name-field-document-creator {
+					float: left;
+					padding-right: 0.25em;
+					margin-bottom: 0.5em;
+					line-height: 22px;
+					&:after {
+						content: ", ";
+						position: relative;
+						left: -2px;
+					}
+				}
+				div:last-child {
+					&:after {
+						content: "";
+					}
+				}
+			}
+
+			&.course-files-links {
+				clear: both;
+				.paragraphs-item-downloads-links .content {
+					.field-item {
+						float: left;
+						padding: 0.1em 0.5em 0.5em 0;
+						font-size: 24px;
+					}
+				}
+				a.fa {
+					font-size: 24px;
+					&:hover {
+						color: $awesome-hover;
+						text-decoration: none;
+					}
+					&.fa-archive,
+					&.fa-square,
+					&.fa-square-o {
+						font-size: 26px;
+						color: $fa-deep-blue;
+
+						&:hover {
+							color: $fa-deep-blue-hover;
+						}
+					}
+
+				}
+
+			}
+			&.course-license {
+				float: left;
+			}
+		}
+	}
+
+}
+
+/* don't even get me started on this one ... */
+.page-node-7,
+.page-node-69 {
+	.field-name-field-text {
+		.imagebox-wrapper_small {
+
+			&.float-left,
+			&.float-right {
+				width: 30%;
+				float: none;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 480px) {
+
+	/* don't even get me started on this one ... */
+	.page-node-7,
+	.page-node-69 {
+		.field-name-field-text {
+			.imagebox-wrapper_small {
+				width: auto;
+				&.float-right{
+					float: right;
+				}
+				&.float-left {
+					float: left;
+				}
+			}
+		}
+	}
+	.paragraphs-items-field-text-link-block {
+		.field-name-field-link {
+			a {
+				font-size: 16px;
+			}
+		}
+	}
+	#footer {
+		.cc-logo {
+			float: left;
+			margin: 0 1.5em 0 0;
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 580px) {
+
+	#block-views-front-links-block-frontlinks {
+		.views-responsive-grid {
+			width: 100%;
+			text-align: center;
+			.views-row {
+				display: inline-block;
+			}
+			.views-column {
+				width: 200px;
+				display: table-cell;
+				//float: left;
+				padding: 0 1em;
+				text-align: left;
+				margin-bottom: 1.5em;
+			}
+			.field-name-field-link-description,
+			.field-name-field-link-text {
+				display: block;
+				padding: 8px 12px;
+			}
+			.field-name-field-link-text {
+				color: $link-block;
+				min-height: 275px;
+				&.find {
+					background-color: $find-block-bg;
+				}
+				&.share {
+					background-color: $share-block-bg;
+				}
+				&.connect {
+					background-color: $connect-block-bg;
+				}
+			}
+		}
+	}
+
+	.node-type-openmich-blog .blog-image-wrapper,
+	.view-open-mich-blog .blog-image-wrapper,
+	.node-type-unit-landing-page .course-image-wrapper,
+	.node-type-course .course-image-wrapper {
+		display: block;
+		float: right;
+		width: 40%;
+		margin-left: 2%;
+		.field-name-field-blog-image,
+		.field-name-field-course-image {
+			img {
+				width: 100%;
+			}
+		}
+		.field-name-field-blog-image-caption,
+		.field-name-field-course-image-caption {
+			@include font-rem(12px, 16px);
+			//font-family: $stack_minion;
+			p {margin:0;}
+		}
+	}
+	#course-tabs {
+		&.ui-tabs .ui-tabs-panel {
+			padding: 1em 1.4em
+		}
+		ul.ui-widget-header {
+			border-bottom: $tab-border;
+		}
+
+		&.ui-tabs ul.ui-tabs-nav {
+			li {
+				width:auto;
+			}
+			.ui-state-active,
+			.ui-widget-content .ui-state-active,
+			.ui-widget-header .ui-state-active {
+				border: $tab-border;
+			}
+			li.ui-state-default:last-of-type {
+				&.ui-state-active {
+					border-bottom-style: none !important;
+				}
+			}
+		}
+
+	}
+
+	.view-course {
+		&.view-display-id-panel_pane_coursesessions,
+		&.view-display-id-panel_pane_coursematerials {
+			caption .overview-anchor {
+				top: 5px;
+				margin-top: 0;
+			}
+			thead {
+				display: table-header-group;
+				@include font-rem(18px, 24px);
+				text-align: left;
+				background-color: $course-tr-bg;
+			}
+			tr {
+				display: table-row;
+				float:  none;
+			}
+			td {
+				float: none;
+				display: table-cell;
+				vertical-align: top;
+				&.course-title-attribs {
+					width: 47%;
+					padding: 0.25em 0.5em;
+					margin-top: 0;
+				}
+				&.course-creator{
+					width: 25%;
+					padding: 0.25em 0.5em;
+					display: table-cell;
+					.field-name-field-document-creator {
+						float: none;
+						padding-right:0;
+						&:after {content:"";}
+					}
+				}
+
+				&.course-files-links {
+					width: 18%;
+					padding-top: 0.25em;
+					padding-bottom: 0;
+					.paragraphs-item-downloads-links .content {
+						.field-item {
+							padding: 0.1em 0.5em 0.5em 0;
+						}
+					}
+				}
+				&.course-license {
+					padding-top: 0.45em;
+					padding-left: 0.5em;
+				}
+			}
+		}
+
+	}
+	.paragraphs-items-field-text-link-block {
+		.field-name-field-link {
+			a {
+				font-size: 18px;
+			}
+		}
+	}
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape),
+screen and (min-width: 800px) {
+
+
+	#main {
+		padding-top: 2em;
+	}
+	.header-inner-wrapper {
+		padding-bottom: 1.5em;
+	}
+	.front #content {
+		margin-top: 0;
+	}
+	#content {
+		border-left: $main-border;
+	}
+	.region-sidebar-first {
+		border-right: $main-border;
+		position: relative;
+		right: -1px;
+	}
+	.no-sidebars,
+	.front {
+		#content,
+		.region-sidebar-first {
+			border: none;
+		}
+	}
+
+	#block-panels-mini-header-navigation-and-search {
+		clear: none;
+		padding: 0;
+		top: 1.5em;
+		right: 10px;
+
+	    // Completely hide the mobile navigation. Using display none to hide from screen reader
+	    .pane-menu-block-mobile-header-navigation {
+      		display: none;
+    	}
+    	.pane-search-form {display:none;}
+   	}
+    // Search form
+    #block-search-form {
+      	display: block;
+      	float:right;
+      	.form-text {
+      		width: 180px;
+        	height: 30px;
+        	@include font-rem(14px, 14px);
+        	padding: 4px 12px;
+        	@include box-sizing(border-box);
+        	border: none;
+        	background-color: $search_bg;
+			float:left;
+			margin-right:15px;
+			border-radius: 8px;
+      	}
+		.form-submit {
+			// Remove some of the css from the standard submit button
+			background: none;
+			position: relative;
+			height: 28px;
+			width: 28px;
+			top:2px;
+			//right: 8px;
+			margin: 0;
+			padding: 0;
+			border-radius: 0;
+    	}
+	}
+
+  	#block-menu-block-sidebar-menu {
+    	display: block;
+		h2.block-title {
+			border-bottom: $menu-h2-border;
+			@include font-rem(28px, 28px);
+			font-weight:normal;
+		}
+  	}
+
+  	.menu-block-sidebar_menu {
+
+    	ul.menu {
+      		padding: 0;
+      		margin: 0;
+      		h2.block-title {
+				border-bottom:$menu-h2-border;
+      			a:hover {text-decoration: none;}
+      		}
+      		li {
+				border-bottom: $menu-bottom-border;
+				.last {
+					border-bottom:none;
+				}
+				a {
+					@include font-rem(22px, 22px);
+					font-weight:600;
+					color: $sidebar_menu_text;
+					padding-top: 0.25em;
+					padding-bottom: 0.25em;
+					padding-right: 0.5em;
+					display: block;
+
+					&.active {
+						color: $sidebar_menu_active;
+						background: $sidebar_menu_active-bg;
+					}
+					&:hover {
+						color: $sidebar_menu_hover;
+						background-color: $sidebar_menu_hover-bg;
+						text-decoration: none;
+					}
+					&.menu-external-link {
+						background: url("../images/external-link.png") no-repeat scroll 95% 50% transparent;
+						padding-right: 28px;
+						&:hover {
+							background: url("../images/external-link.png") no-repeat scroll 95% 50% $sidebar_menu_active-bg;
+						}
+					}
+					&.menu-internal-link {
+						background: url("../images/internal-key.png") no-repeat scroll 95% 50% $sidebar_menu_active-bg;
+						padding-right: 28px;
+					}
+				}
+			}
+		}
+		ul.menu li > ul.menu li{ border-top: none;}
+		ul.menu li a {padding-left: 1em;}
+		ul.menu li ul li a {padding-left: 2em; @include font-rem(20px, 26px); font-weight: normal;}
+		ul.menu li ul li ul li a {padding-left: 3em; @include font-rem(18px, 24px);}
+		ul.menu li ul li ul li ul li a {padding-left: 4em; @include font-rem(18px, 24px);}
+	}
+
+
+	.social-wrapper {
+		float: right;
+		margin-right: 1.5em;
+	}
+
+	.top-navbar-wrapper {
+		background-color: $menubar-bg;
+		display: block;
+		ul.menu {
+			margin: 0;
+			padding: 0;
+
+			li {
+				float: left;
+				a {
+					display: block;
+					color: $menubar-link;
+					background-color: $menubar-link-bg;
+					@include font-rem(20px, 24px);
+					padding: 8px 2em;
+					&:focus,
+					&:hover {
+						text-decoration: none;
+						color: $menubar-hover;
+						background-color: $menubar-hover-bg;
+					}
+					&.active-trail,
+					&.active {
+						color: $menubar-active;
+						background-color: $menubar-active-bg;
+					}
+				}
+			}
+		}
+	}
+	#block-views-promos-block-promoblock {
+		border-top: none;
+		padding-top: 0;
+	}
+}
+
+@media only screen and (min-width: 980px){
+
+}
