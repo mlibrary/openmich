@@ -8,3 +8,8 @@ sites/*/private
 *.patch
 *.sql
 *.gz
+
+*,
+*-
+*.*.bak
+drupal-7.*
